@@ -1,21 +1,39 @@
 package com.aquafun3d.challenge
 
-import com.aquafun3d.challenge.utils.Settings
+import com.aquafun3d.challenge.commands.TimerCommand
+import com.aquafun3d.challenge.utils.TimerConfig
+import com.aquafun3d.challenge.utils.TimerService
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
+
 
 class Main : JavaPlugin() {
 
-    private var plugin: Main? = this
-
     override fun onEnable() {
-        println(Settings.PREFIX)
+        Bukkit.getLogger().fine("Plugin activated")
+
+        timerConfig = TimerConfig()
+        timerService = TimerService(this)
+
+        commandRegistration()
+        listenerRegistration()
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+        Bukkit.getLogger().fine("Plugin deactivated")
     }
 
-    fun getPlugin(): Main? {
-        return plugin
+
+    private fun commandRegistration() {
+        getCommand("timer")!!.setExecutor(TimerCommand())
+    }
+
+    private fun listenerRegistration() {
+
+    }
+
+    companion object {
+        var timerConfig: TimerConfig? = null
+        var timerService: TimerService? = null
     }
 }

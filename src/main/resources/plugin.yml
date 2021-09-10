@@ -5,3 +5,7 @@ api-version: 1.17
 authors: [ AquaFun3D ]
 description: Minecraft Challenge Plugin in Kotlin
 website: AquaFun3D.com
+
+commands:
+  timer:
+    description: Started die Challenge
