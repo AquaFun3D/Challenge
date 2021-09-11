@@ -8,4 +8,7 @@ website: AquaFun3D.com
 
 commands:
   timer:
-    description: Started die Challenge
+    description: Toggles the timer
+  Damage:
+    description: Toggles damage visibilty
+    aliases: [dmg]

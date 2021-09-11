@@ -1,7 +1,11 @@
 package com.aquafun3d.challenge
 
+import com.aquafun3d.challenge.commands.DmgCommand
 import com.aquafun3d.challenge.commands.TimerCommand
+import com.aquafun3d.challenge.listeners.DmgEntityListener
+import com.aquafun3d.challenge.listeners.DmgListener
 import com.aquafun3d.challenge.listeners.JoinListener
+import com.aquafun3d.challenge.utils.Settings
 import com.aquafun3d.challenge.utils.TimerConfig
 import com.aquafun3d.challenge.utils.TimerService
 import org.bukkit.Bukkit
@@ -16,6 +20,7 @@ class Main : JavaPlugin() {
 
         timerConfig = TimerConfig()
         timerService = TimerService(this)
+        Settings.fillMap()
 
         commandRegistration()
         listenerRegistration()
@@ -28,14 +33,17 @@ class Main : JavaPlugin() {
 
     private fun commandRegistration() {
         getCommand("timer")!!.setExecutor(TimerCommand())
+        getCommand("damage")!!.setExecutor(DmgCommand())
     }
 
     private fun listenerRegistration() {
-        val pluginManager: PluginManager = Bukkit.getPluginManager()
         pluginManager.registerEvents(JoinListener(), this)
+        pluginManager.registerEvents(DmgListener(),this)
+        pluginManager.registerEvents(DmgEntityListener(),this)
     }
 
     companion object {
+        val pluginManager: PluginManager = Bukkit.getPluginManager()
         var timerConfig: TimerConfig? = null
         var timerService: TimerService? = null
     }
