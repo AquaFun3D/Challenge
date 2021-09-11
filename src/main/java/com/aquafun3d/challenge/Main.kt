@@ -1,9 +1,11 @@
 package com.aquafun3d.challenge
 
 import com.aquafun3d.challenge.commands.TimerCommand
+import com.aquafun3d.challenge.listeners.JoinListener
 import com.aquafun3d.challenge.utils.TimerConfig
 import com.aquafun3d.challenge.utils.TimerService
 import org.bukkit.Bukkit
+import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
 
 
@@ -29,7 +31,8 @@ class Main : JavaPlugin() {
     }
 
     private fun listenerRegistration() {
-
+        val pluginManager: PluginManager = Bukkit.getPluginManager()
+        pluginManager.registerEvents(JoinListener(), this)
     }
 
     companion object {

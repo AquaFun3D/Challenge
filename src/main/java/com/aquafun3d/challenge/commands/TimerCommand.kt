@@ -2,15 +2,11 @@ package com.aquafun3d.challenge.commands
 
 import com.aquafun3d.challenge.Main
 import com.aquafun3d.challenge.utils.Settings
-import com.aquafun3d.challenge.utils.TimerService
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-
-
-
 
 class TimerCommand: CommandExecutor {
 

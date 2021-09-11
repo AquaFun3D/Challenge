@@ -5,7 +5,6 @@ by AquaFun3D
 TODO:
 
 - Abstract/interface challenge class
-- Timer + Config
 - Settings menus
   - Challenge switcher
   - Hardcore, PvP, Health, Dmg, Difficulty
