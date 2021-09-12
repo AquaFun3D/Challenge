@@ -9,7 +9,4 @@ TODO:
   - Challenge switcher
   - Hardcore, PvP, Health, Dmg, Difficulty
 - Finish
-- Dmg Listener
-- Join/Leave
 - Waypoints
-- 
