@@ -9,6 +9,9 @@ website: AquaFun3D.com
 commands:
   timer:
     description: Toggles the timer
-  Damage:
+  damage:
     description: Toggles damage visibilty
     aliases: [dmg]
+  waypoint:
+    description: sets or show waypoints
+    aliases: [wp]

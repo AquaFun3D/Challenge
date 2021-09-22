@@ -16,7 +16,7 @@ object Settings {
 	//Sends message to all players with Challenge prefix
 	fun atAll(message: String){
 		for(p in Bukkit.getOnlinePlayers()){
-			p.sendMessage("$PREFIX $message")
+			p.sendMessage("$PREFIX$message")
 		}
 	}
 

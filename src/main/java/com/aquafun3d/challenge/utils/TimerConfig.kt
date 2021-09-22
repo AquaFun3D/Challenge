@@ -6,7 +6,6 @@ import java.io.IOException
 
 
 class TimerConfig {
-
 	private var file: File? = null
 	private var config: YamlConfiguration? = null
 
