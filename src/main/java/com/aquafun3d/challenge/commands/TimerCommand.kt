@@ -23,11 +23,10 @@ class TimerCommand: CommandExecutor {
 					Main.timerService?.getInstance()?.toggle()
 				}else{
 					Main.timerService?.getInstance()?.reset()
+					sender.sendMessage(Settings.PREFIX + ChatColor.RED + " Timer reset")
 				}
 			}
 		}
 		return false
 	}
-
-
 }

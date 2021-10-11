@@ -10,6 +10,7 @@ import org.bukkit.entity.Player
 
 
 class WaypointCommand: CommandExecutor{
+
 	override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
 		if (sender is Player) {
 			val player: Player = sender
@@ -91,8 +92,5 @@ class WaypointCommand: CommandExecutor{
 		}
 		return false
 	}
-
 	// TODO Clear confirm
-
-
 }

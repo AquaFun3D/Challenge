@@ -1,15 +1,14 @@
 package com.aquafun3d.challenge
 
 import com.aquafun3d.challenge.commands.DmgCommand
+import com.aquafun3d.challenge.commands.SettingsCommand
 import com.aquafun3d.challenge.commands.TimerCommand
 import com.aquafun3d.challenge.commands.WaypointCommand
 import com.aquafun3d.challenge.listeners.DmgEntityListener
 import com.aquafun3d.challenge.listeners.DmgListener
 import com.aquafun3d.challenge.listeners.JoinListener
-import com.aquafun3d.challenge.utils.Settings
-import com.aquafun3d.challenge.utils.TimerConfig
-import com.aquafun3d.challenge.utils.TimerService
-import com.aquafun3d.challenge.utils.WaypointConfig
+import com.aquafun3d.challenge.listeners.SettingsInvListener
+import com.aquafun3d.challenge.utils.*
 import org.bukkit.Bukkit
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
@@ -23,6 +22,7 @@ class Main : JavaPlugin() {
         timerConfig = TimerConfig()
         timerService = TimerService(this)
         waypointConfig = WaypointConfig()
+        settingsInv = SettingsInv()
         Settings.fillMap()
 
         commandRegistration()
@@ -38,12 +38,14 @@ class Main : JavaPlugin() {
         getCommand("timer")!!.setExecutor(TimerCommand())
         getCommand("damage")!!.setExecutor(DmgCommand())
         getCommand("waypoint")!!.setExecutor(WaypointCommand())
+        getCommand("settings")!!.setExecutor(SettingsCommand())
     }
 
     private fun listenerRegistration() {
         pluginManager.registerEvents(JoinListener(), this)
         pluginManager.registerEvents(DmgListener(),this)
         pluginManager.registerEvents(DmgEntityListener(),this)
+        pluginManager.registerEvents(SettingsInvListener(),this)
     }
 
     companion object {
@@ -51,5 +53,6 @@ class Main : JavaPlugin() {
         var timerConfig: TimerConfig? = null
         var waypointConfig: WaypointConfig? = null
         var timerService: TimerService? = null
+        var settingsInv: SettingsInv? = null
     }
 }

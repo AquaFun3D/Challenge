@@ -26,6 +26,10 @@ object Settings {
 		return PREFIX + ChatColor.AQUA + player + ChatColor.GREEN.toString() + " got " + ChatColor.GOLD.toString() + amount + ChatColor.GREEN.toString() + " hearts damage by " + ChatColor.BLUE.toString() + source
 	}
 
+	enum class Hardcore {
+		NUHC, UHC, UUHC
+	}
+
 	val damageCauseMap = mutableMapOf<EntityDamageEvent.DamageCause, String>()
 	fun fillMap() {
 		damageCauseMap[EntityDamageEvent.DamageCause.BLOCK_EXPLOSION] = "EXPLOSION"

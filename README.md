@@ -9,4 +9,12 @@ TODO:
   - Challenge switcher
   - Hardcore, PvP, Health, Dmg, Difficulty
 - Finish
-- Waypoints
+
+- Hardcore, UHC, UUHC
+- Dmg multiplier
+- Difficulty
+- Health
+- Timer reverse
+  - Time
+- Challenge
+

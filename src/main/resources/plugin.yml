@@ -15,3 +15,5 @@ commands:
   waypoint:
     description: sets or show waypoints
     aliases: [wp]
+  settings:
+    description: define rules of the challenge
