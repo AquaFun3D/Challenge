@@ -1,13 +1,7 @@
 package com.aquafun3d.challenge
 
-import com.aquafun3d.challenge.commands.DmgCommand
-import com.aquafun3d.challenge.commands.SettingsCommand
-import com.aquafun3d.challenge.commands.TimerCommand
-import com.aquafun3d.challenge.commands.WaypointCommand
-import com.aquafun3d.challenge.listeners.DmgEntityListener
-import com.aquafun3d.challenge.listeners.DmgListener
-import com.aquafun3d.challenge.listeners.JoinListener
-import com.aquafun3d.challenge.listeners.SettingsInvListener
+import com.aquafun3d.challenge.commands.*
+import com.aquafun3d.challenge.listeners.*
 import com.aquafun3d.challenge.utils.*
 import org.bukkit.Bukkit
 import org.bukkit.plugin.PluginManager
@@ -39,13 +33,15 @@ class Main : JavaPlugin() {
         getCommand("damage")!!.setExecutor(DmgCommand())
         getCommand("waypoint")!!.setExecutor(WaypointCommand())
         getCommand("settings")!!.setExecutor(SettingsCommand())
+        getCommand("start")!!.setExecutor(StartCommand())
     }
 
     private fun listenerRegistration() {
         pluginManager.registerEvents(JoinListener(), this)
         pluginManager.registerEvents(DmgListener(),this)
-        pluginManager.registerEvents(DmgEntityListener(),this)
         pluginManager.registerEvents(SettingsInvListener(),this)
+        pluginManager.registerEvents(ChallengeListeners(),this)
+        pluginManager.registerEvents(RegenerationListener(),this)
     }
 
     companion object {

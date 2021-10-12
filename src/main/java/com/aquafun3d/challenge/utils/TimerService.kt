@@ -76,7 +76,7 @@ class TimerService(plugin: Plugin) {
 		reversed = !reversed
 	}
 
-	private fun getTimerString(): String {
+	fun getTimerString(): String {
 		var hms: String
 		hms = if (sec < 3600) {
 			String.format("%02d:%02d", sec / 60, sec % 60)
@@ -99,7 +99,7 @@ class TimerService(plugin: Plugin) {
 	}
 
 	fun getSec(): Int {
-		return sec
+		return this.sec
 	}
 
 	private fun getState(): TimerState {
@@ -117,6 +117,7 @@ class TimerService(plugin: Plugin) {
 	private fun setSec(sec: Int) {
 		this.sec = sec
 	}
+
 
 	@Synchronized
 	fun getInstance(): TimerService? {

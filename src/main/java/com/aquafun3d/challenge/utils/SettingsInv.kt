@@ -28,20 +28,20 @@ class SettingsInv{
 		healthMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Health")
 		health.itemMeta = healthMeta
 
-		val NUHC = ItemStack(Material.APPLE)
-		val UHNMeta = NUHC.itemMeta
-		UHNMeta!!.setDisplayName(ChatColor.GREEN.toString() + "No Ultra Hardcore")
-		NUHC.itemMeta = UHNMeta
+		val nuhc = ItemStack(Material.APPLE)
+		val nuhcMeta = nuhc.itemMeta
+		nuhcMeta!!.setDisplayName(ChatColor.GREEN.toString() + "No Ultra Hardcore")
+		nuhc.itemMeta = nuhcMeta
 
-		val UHC = ItemStack(Material.GOLDEN_APPLE)
-		val UHCMeta = UHC.itemMeta
-		UHCMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Ultra Hardcore")
-		UHC.itemMeta = UHCMeta
+		val uhc = ItemStack(Material.GOLDEN_APPLE)
+		val uhcMeta = uhc.itemMeta
+		uhcMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Ultra Hardcore")
+		uhc.itemMeta = uhcMeta
 
-		val UUHC = ItemStack(Material.ENCHANTED_GOLDEN_APPLE)
-		val UUHMeta = UUHC.itemMeta
-		UUHMeta!!.setDisplayName(ChatColor.RED.toString() + "Ultra Ultra Hardcore")
-		UUHC.itemMeta = UUHMeta
+		val uuhc = ItemStack(Material.ENCHANTED_GOLDEN_APPLE)
+		val uuhcMeta = uuhc.itemMeta
+		uuhcMeta!!.setDisplayName(ChatColor.RED.toString() + "Ultra Ultra Hardcore")
+		uuhc.itemMeta = uuhcMeta
 
 		val peace = ItemStack(Material.NETHERITE_INGOT)
 		val peaceMeta = peace.itemMeta
@@ -93,9 +93,9 @@ class SettingsInv{
 		}
 
 		when (this.hardcore) {
-			Settings.Hardcore.NUHC -> inv.setItem(19,NUHC);
-			Settings.Hardcore.UHC -> inv.setItem(19,UHC);
-			Settings.Hardcore.UUHC -> inv.setItem(19,UUHC);
+			Settings.Hardcore.NUHC -> inv.setItem(19,nuhc);
+			Settings.Hardcore.UHC -> inv.setItem(19,uhc);
+			Settings.Hardcore.UUHC -> inv.setItem(19,uuhc);
 		}
 
 		inv.setItem(1,health);

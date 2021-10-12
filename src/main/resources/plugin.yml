@@ -17,3 +17,5 @@ commands:
     aliases: [wp]
   settings:
     description: define rules of the challenge
+  start:
+    description: starts the challenge
