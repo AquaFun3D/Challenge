@@ -2,14 +2,22 @@ package com.aquafun3d.challenge.commands
 
 import com.aquafun3d.challenge.Main
 import com.aquafun3d.challenge.utils.Settings
+import net.md_5.bungee.api.chat.ClickEvent
+import net.md_5.bungee.api.chat.ComponentBuilder
+import net.md_5.bungee.api.chat.HoverEvent
+import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import java.time.LocalDateTime
 
 
 class WaypointCommand: CommandExecutor{
+
+	var clear: Int = 0
+	var timeClear: Int = 0
 
 	override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
 		if (sender is Player) {
@@ -49,11 +57,21 @@ class WaypointCommand: CommandExecutor{
 					}
 				}
 				"clear" -> {
-					if (player.name == "AquaFun3D") {
-						Main.waypointConfig?.set("waypoints", null)
-						player.sendMessage(Settings.PREFIX + ChatColor.DARK_RED + "All waypoints deleted!")
+					if (player.isOp) {
+						if(LocalDateTime.now().minute - timeClear >= 1){
+							clear = 0
+						}
+						if(clear == 0){
+							player.sendMessage(Settings.PREFIX + ChatColor.RED + "Are you Sure? " + ChatColor.GREEN + "Run Command again.")
+							clear = 1
+							timeClear = LocalDateTime.now().minute
+						}else if(clear == 1) {
+							Main.waypointConfig?.set("waypoints", null)
+							player.sendMessage(Settings.PREFIX + ChatColor.DARK_RED + "All waypoints deleted!")
+							clear = 0
+						}
 					} else {
-						player.sendMessage(Settings.PREFIX + ChatColor.GOLD + "You are not AquaFun3D!")
+						player.sendMessage(Settings.PREFIX + ChatColor.GOLD + "You are not Admin!")
 					}
 				}
 				else -> {
@@ -92,5 +110,4 @@ class WaypointCommand: CommandExecutor{
 		}
 		return false
 	}
-	// TODO Clear confirm
 }

@@ -7,3 +7,4 @@ TODO:
 - Abstract/interface challenge class
 - Timer inventory
 - Challenges inventory
+- OOP Fix

@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ChatMessageType
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
+import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import java.io.IOException
 import java.time.LocalDateTime
@@ -36,10 +37,7 @@ class TimerService(plugin: Plugin) {
 				}
 			} else {
 				for (p in Bukkit.getOnlinePlayers()) {
-					p.spigot().sendMessage(
-						ChatMessageType.ACTION_BAR,
-						TextComponent(ChatColor.GREEN.toString() + "" + ChatColor.ITALIC + "Timer paused")
-					)
+					setTimerActionbar(p)
 				}
 			}
 		}, 5L, 5L)
@@ -122,6 +120,10 @@ class TimerService(plugin: Plugin) {
 	@Synchronized
 	fun getInstance(): TimerService? {
 		return instance
+	}
+
+	fun setTimerActionbar(p: Player){
+		p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent( "" + ChatColor.GREEN + "" + ChatColor.ITALIC + "Timer paused"))
 	}
 
 }

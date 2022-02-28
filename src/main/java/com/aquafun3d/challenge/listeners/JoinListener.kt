@@ -23,16 +23,17 @@ class JoinListener : Listener {
 		val player: Player = e.player
 		e.joinMessage = Settings.PREFIX + ChatColor.DARK_PURPLE +  ChatColor.AQUA + player.getName() + ChatColor.LIGHT_PURPLE + " has joined"
 		val board: Scoreboard = Bukkit.getScoreboardManager()!!.newScoreboard
-		val obj: Objective = board.registerNewObjective("health", "health", "health")
+		val obj: Objective = board.registerNewObjective("health", "health", "health",RenderType.HEARTS)
 		obj.getScore("health").score = 1
 		obj.displaySlot = DisplaySlot.PLAYER_LIST
-		obj.renderType = RenderType.HEARTS
 		player.scoreboard = board
 
 		if (Main.timerConfig!!.getInt("timer.time") != 0) {
-			player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent( "" + ChatColor.GREEN + "" + ChatColor.ITALIC + "Timer paused"))
+			Main.timerService?.setTimerActionbar(player)
 		}
-		//TODO Bugfix new player join show health of others
+		for(p in Bukkit.getOnlinePlayers()){
+			p.damage(0.1)
+		}
 	}
 
 	@EventHandler
