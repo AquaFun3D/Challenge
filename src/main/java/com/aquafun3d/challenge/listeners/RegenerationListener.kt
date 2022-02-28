@@ -10,6 +10,7 @@ import org.bukkit.event.entity.EntityRegainHealthEvent
 
 class RegenerationListener: Listener {
 
+	//handles regeneration of health
 	@EventHandler
 	fun onReg(e: EntityRegainHealthEvent) {
 		if (Main.settingsInv?.getHardcore() == Settings.Hardcore.UUHC) {

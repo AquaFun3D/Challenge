@@ -2,8 +2,6 @@ package com.aquafun3d.challenge.listeners
 
 import com.aquafun3d.challenge.Main
 import com.aquafun3d.challenge.utils.Settings
-import net.md_5.bungee.api.ChatMessageType
-import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
@@ -18,6 +16,7 @@ import org.bukkit.scoreboard.Scoreboard
 
 class JoinListener : Listener {
 
+	//handles the player join
 	@EventHandler
 	fun onJoin(e: PlayerJoinEvent) {
 		val player: Player = e.player
@@ -36,10 +35,10 @@ class JoinListener : Listener {
 		}
 	}
 
+	//handles the player leaving the server
 	@EventHandler
 	fun onLeave(e: PlayerQuitEvent) {
 		val player: Player = e.player
 		e.quitMessage = Settings.PREFIX + ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has left"
-
 	}
 }

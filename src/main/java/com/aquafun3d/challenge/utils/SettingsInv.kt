@@ -17,13 +17,14 @@ class SettingsInv{
 	private var health: Int = 20
 	private val inv: Inventory = Bukkit.createInventory(null,27, "" + ChatColor.DARK_PURPLE + "Challenge Settings")
 
+	//Generates placeholder items for settings inventory and places them into the inventory
 	fun newInventory(player: Player){
-		val empty: ItemStack = ItemStack(Material.BLACK_STAINED_GLASS_PANE)
+		val empty = ItemStack(Material.BLACK_STAINED_GLASS_PANE)
 		val emptyMeta = empty.itemMeta
 		emptyMeta!!.setDisplayName(" ")
 		empty.itemMeta = emptyMeta
 
-		val health: ItemStack = ItemStack(Material.HEART_OF_THE_SEA, this.health)
+		val health = ItemStack(Material.HEART_OF_THE_SEA, this.health)
 		val healthMeta = health.itemMeta
 		healthMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Health")
 		health.itemMeta = healthMeta

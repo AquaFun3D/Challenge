@@ -42,6 +42,7 @@ class Main : JavaPlugin() {
         pluginManager.registerEvents(RegenerationListener(),this)
     }
 
+    //Global objects (Static one time instances)
     companion object {
         val pluginManager: PluginManager = Bukkit.getPluginManager()
         var timerConfig: TimerConfig? = null

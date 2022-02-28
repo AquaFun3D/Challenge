@@ -13,13 +13,16 @@ import org.bukkit.inventory.ItemStack
 
 class SettingsInvListener: Listener {
 
+	//Handles clicks in settings inventory
 	@EventHandler
 	fun onInvClick(e: InventoryClickEvent){
 		val player = e.whoClicked as Player
 		val item: ItemStack? = e.currentItem
+
 		if (e.view.title == ChatColor.DARK_PURPLE.toString() + "Challenge Settings") {
 			e.isCancelled = true
 		}
+
 		if(item == null || !item.hasItemMeta()){
 			return;
 		}
@@ -46,6 +49,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
+		//TODO
 		/*
 		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Challenges"){
 
@@ -64,6 +68,7 @@ class SettingsInvListener: Listener {
 			}
 			Main.settingsInv?.newInventory(player)
 		}
+
 		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Normal") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setDifficulty(Difficulty.HARD)
@@ -72,6 +77,7 @@ class SettingsInvListener: Listener {
 			}
 			Main.settingsInv?.newInventory(player)
 		}
+
 		if (item.itemMeta!!.displayName == ChatColor.RED.toString() + "Hard") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setDifficulty(Difficulty.EASY)
@@ -89,6 +95,7 @@ class SettingsInvListener: Listener {
 			}
 			Main.settingsInv?.newInventory(player)
 		}
+
 		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Ultra Hardcore") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setHardcore(Settings.Hardcore.UUHC)
@@ -97,6 +104,7 @@ class SettingsInvListener: Listener {
 			}
 			Main.settingsInv?.newInventory(player)
 		}
+
 		if (item.itemMeta!!.displayName == ChatColor.RED.toString() + "Ultra Ultra Hardcore") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setHardcore(Settings.Hardcore.NUHC)
@@ -105,8 +113,5 @@ class SettingsInvListener: Listener {
 			}
 			Main.settingsInv?.newInventory(player)
 		}
-
-
 	}
-
 }

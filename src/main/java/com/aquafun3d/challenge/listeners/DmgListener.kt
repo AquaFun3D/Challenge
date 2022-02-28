@@ -12,6 +12,7 @@ import kotlin.math.roundToInt
 
 class DmgListener : Listener {
 
+	//handles damage received by anything else then other entity's
 	@EventHandler
 	fun onDmg(e: EntityDamageEvent) {
 		if (e.entity is Player) {

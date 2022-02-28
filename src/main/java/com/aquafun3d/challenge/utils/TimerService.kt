@@ -10,7 +10,6 @@ import org.bukkit.plugin.Plugin
 import java.io.IOException
 import java.time.LocalDateTime
 
-
 class TimerService(plugin: Plugin) {
 
 	enum class TimerState {PAUSED, RUNNING}
@@ -21,6 +20,7 @@ class TimerService(plugin: Plugin) {
 	private var lastSec = 0
 	private var sec = 0
 
+	//initialize the runnable timer
 	init {
 		Bukkit.getScheduler().scheduleSyncRepeatingTask( plugin, {
 			if (state === TimerState.RUNNING && lastSec != LocalDateTime.now().second) {
@@ -43,6 +43,7 @@ class TimerService(plugin: Plugin) {
 		}, 5L, 5L)
 	}
 
+	//toggle timer running
 	fun toggle() {
 		state = if(getState() != TimerState.RUNNING){
 			val cfg = Main.timerConfig
@@ -55,6 +56,7 @@ class TimerService(plugin: Plugin) {
 		}
 	}
 
+	//reset timer
 	fun reset() {
 		state = TimerState.PAUSED
 		sec = 0
@@ -66,14 +68,12 @@ class TimerService(plugin: Plugin) {
 		}
 	}
 
+	//check if timer is paused
 	fun isPaused(): Boolean {
 		return state === TimerState.PAUSED
 	}
 
-	fun changeReversedState() {
-		reversed = !reversed
-	}
-
+	//returns formatted string of timers time
 	fun getTimerString(): String {
 		var hms: String
 		hms = if (sec < 3600) {
@@ -92,36 +92,43 @@ class TimerService(plugin: Plugin) {
 		return hms
 	}
 
+	//check if timer is reversed
 	fun isReversed(): Boolean {
 		return reversed
 	}
 
+	//return secord timer is running
 	fun getSec(): Int {
 		return this.sec
 	}
 
+	//returns state of the timer
 	private fun getState(): TimerState {
 		return state
 	}
 
+	//make timer reverse
 	fun setReversed(reversed: Boolean) {
 		this.reversed = reversed
 	}
 
+	//set timer state
 	fun setState(state: TimerState?) {
 		this.state = state!!
 	}
 
+	//set timer seconds
 	private fun setSec(sec: Int) {
 		this.sec = sec
 	}
 
-
+	//Get timer instance
 	@Synchronized
 	fun getInstance(): TimerService? {
 		return instance
 	}
 
+	//display actionbar for timer to player
 	fun setTimerActionbar(p: Player){
 		p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent( "" + ChatColor.GREEN + "" + ChatColor.ITALIC + "Timer paused"))
 	}

@@ -2,10 +2,6 @@ package com.aquafun3d.challenge.commands
 
 import com.aquafun3d.challenge.Main
 import com.aquafun3d.challenge.utils.Settings
-import net.md_5.bungee.api.chat.ClickEvent
-import net.md_5.bungee.api.chat.ComponentBuilder
-import net.md_5.bungee.api.chat.HoverEvent
-import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -16,9 +12,10 @@ import java.time.LocalDateTime
 
 class WaypointCommand: CommandExecutor{
 
-	var clear: Int = 0
-	var timeClear: Int = 0
+	private var clear: Int = 0
+	private var timeClear: Int = 0
 
+	//handles waypoints
 	override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
 		if (sender is Player) {
 			val player: Player = sender

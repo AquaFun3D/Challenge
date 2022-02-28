@@ -2,7 +2,6 @@ package com.aquafun3d.challenge.listeners
 
 import com.aquafun3d.challenge.Main
 import com.aquafun3d.challenge.utils.Settings
-import com.aquafun3d.challenge.utils.TimerService
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.GameMode
@@ -16,6 +15,7 @@ import org.bukkit.event.entity.PlayerDeathEvent
 
 class ChallengeListeners: Listener {
 
+	//handles death of the player (challenge lose)
 	@EventHandler
 	fun onPlayerDeath(e: PlayerDeathEvent) {
 		val player = e.entity
@@ -28,6 +28,7 @@ class ChallengeListeners: Listener {
 		}
 	}
 
+	//handles the finish of the challenge (Ender-dragon kill)
 	@EventHandler
 	fun onPlayerWin(e: EntityDeathEvent) {
 		if (e.entity is EnderDragon) {

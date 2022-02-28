@@ -4,7 +4,6 @@ main: com.aquafun3d.challenge.Main
 api-version: 1.18
 authors: [ AquaFun3D ]
 description: Minecraft Challenge Plugin in Kotlin
-website: AquaFun3D.com
 
 commands:
   timer:

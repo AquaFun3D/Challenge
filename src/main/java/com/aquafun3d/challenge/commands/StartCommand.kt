@@ -16,6 +16,8 @@ import org.bukkit.entity.Player
 
 
 class StartCommand:CommandExecutor {
+
+	//Starts the challenge
 	override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
 		if(!Main.timerService?.getInstance()?.isPaused()!! && Main.timerService?.getInstance()?.getSec() != 0 ){
 			return false

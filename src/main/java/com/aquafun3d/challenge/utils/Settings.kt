@@ -6,6 +6,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageEvent
 
 object Settings {
+	//Challenge Prefix
 	val PREFIX: String = "" + ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "Challenge" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_PURPLE
 
 	//Sends message to player with Challenge prefix
@@ -20,17 +21,23 @@ object Settings {
 		}
 	}
 
+	//Global variable to display recieved damage in chat
 	var dmgListenerToggle = true
 
+	//Map damage values into a proper string to print
 	fun dmgMessage(player: String, amount: String, source: String ):String{
 		return PREFIX + ChatColor.AQUA + player + ChatColor.GREEN.toString() + " got " + ChatColor.GOLD.toString() + amount + ChatColor.GREEN.toString() + " hearts damage by " + ChatColor.BLUE.toString() + source
 	}
 
+	//Hardcore modes enum
 	enum class Hardcore {
 		NUHC, UHC, UUHC
 	}
 
+	//Map with better damagesource descriptions
 	val damageCauseMap = mutableMapOf<EntityDamageEvent.DamageCause, String>()
+
+	//Fills damagemap
 	fun fillMap() {
 		damageCauseMap[EntityDamageEvent.DamageCause.BLOCK_EXPLOSION] = "EXPLOSION"
 		damageCauseMap[EntityDamageEvent.DamageCause.CONTACT] = "CONTACT"
