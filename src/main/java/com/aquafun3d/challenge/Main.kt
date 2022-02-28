@@ -7,7 +7,6 @@ import org.bukkit.Bukkit
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
 
-
 class Main : JavaPlugin() {
 
     override fun onEnable() {
@@ -25,8 +24,7 @@ class Main : JavaPlugin() {
 
     override fun onDisable() {
         Bukkit.getLogger().fine("Plugin deactivated")
-    }
-
+	}
 
     private fun commandRegistration() {
         getCommand("timer")!!.setExecutor(TimerCommand())
