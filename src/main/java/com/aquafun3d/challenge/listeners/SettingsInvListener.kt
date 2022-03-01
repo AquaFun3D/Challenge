@@ -49,12 +49,9 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		//TODO
-		/*
 		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Challenges"){
-
+			Main.challengeInv?.newInventory(player)
 		}
-		*/
 
 		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Timer"){
 			Main.timerInv?.newInventory(player)

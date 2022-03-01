@@ -17,6 +17,7 @@ class Main : JavaPlugin() {
         waypointConfig = WaypointConfig()
         settingsInv = SettingsInv()
         timerInv = TimerInv()
+        challengeInv = ChallengeInv()
         Settings.fillMap()
 
         commandRegistration()
@@ -42,6 +43,7 @@ class Main : JavaPlugin() {
         pluginManager.registerEvents(ChallengeListeners(),this)
         pluginManager.registerEvents(RegenerationListener(),this)
         pluginManager.registerEvents(TimerInvListener(),this)
+        pluginManager.registerEvents(ChallengeInvListener(),this)
     }
 
     //Global objects (Static one time instances)
@@ -52,5 +54,6 @@ class Main : JavaPlugin() {
         var timerService: TimerService? = null
         var settingsInv: SettingsInv? = null
         var timerInv: TimerInv? = null
+        var challengeInv: ChallengeInv? = null
     }
 }
