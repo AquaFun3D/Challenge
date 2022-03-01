@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack
 
 class TimerInvListener: Listener {
 
-	//Handles clicks in timer inventory
+	//Handle clicks in timer inventory
 	@EventHandler
 	fun onInvClick(e: InventoryClickEvent) {
 		val player = e.whoClicked as Player

@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack
 
 class SettingsInvListener: Listener {
 
-	//Handles clicks in settings inventory
+	//Handle clicks in settings inventory
 	@EventHandler
 	fun onInvClick(e: InventoryClickEvent){
 		val player = e.whoClicked as Player

@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack
 
 class ChallengeInvListener: Listener {
 
+	//Handle clicks in challenges inventory
 	@EventHandler
 	fun onInvClick(e: InventoryClickEvent) {
 		val player = e.whoClicked as Player
