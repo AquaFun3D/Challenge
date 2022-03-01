@@ -15,9 +15,8 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.5.30</kotlin.version>
+        <kotlin.version>1.6.10</kotlin.version>
     </properties>
-    <url>AquaFun3D.com</url>
 
     <build>
         <plugins>

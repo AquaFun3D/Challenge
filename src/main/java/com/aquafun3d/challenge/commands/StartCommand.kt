@@ -38,6 +38,7 @@ class StartCommand:CommandExecutor {
 			Difficulty.HARD -> for (world in Bukkit.getWorlds()){ world.difficulty = Difficulty.HARD }
 			Difficulty.NORMAL -> for (world in Bukkit.getWorlds()){ world.difficulty = Difficulty.NORMAL }
 			Difficulty.PEACEFUL -> for (world in Bukkit.getWorlds()){ world.difficulty = Difficulty.PEACEFUL }
+			else -> {}
 		}
 		Bukkit.getOnlinePlayers().forEach { p: Player? ->
 			p!!.getAttribute(Attribute.GENERIC_MAX_HEALTH)!!.baseValue = Main.settingsInv?.getHealth()!!.toDouble()
