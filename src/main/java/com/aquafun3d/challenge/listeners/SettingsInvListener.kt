@@ -24,7 +24,7 @@ class SettingsInvListener: Listener {
 		}
 
 		if(item == null || !item.hasItemMeta()){
-			return;
+			return
 		}
 
 		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Health") {
@@ -54,11 +54,11 @@ class SettingsInvListener: Listener {
 		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Challenges"){
 
 		}
+		*/
 
 		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Timer"){
-
+			Main.timerInv?.newInventory(player)
 		}
-		*/
 
 		if (item.itemMeta!!.displayName == ChatColor.GREEN.toString() + "Easy") {
 			if (e.isLeftClick) {

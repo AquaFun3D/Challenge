@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ChatMessageType
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
+import org.bukkit.GameMode
 import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import java.io.IOException
@@ -26,6 +27,9 @@ class TimerService(plugin: Plugin) {
 			if (state === TimerState.RUNNING && lastSec != LocalDateTime.now().second) {
 				lastSec = LocalDateTime.now().second
 				if (reversed) {
+					if(sec <= 0){
+						timeRunsOut()
+					}
 					sec--
 				} else {
 					sec++
@@ -62,7 +66,7 @@ class TimerService(plugin: Plugin) {
 		sec = 0
 		val cfg = Main.timerConfig
 		try {
-			cfg!!.set("timer.time", 0)
+			cfg!!["timer.time"] = 0
 		} catch (e: IOException) {
 			e.printStackTrace()
 		}
@@ -92,12 +96,20 @@ class TimerService(plugin: Plugin) {
 		return hms
 	}
 
+	//Ends challenge if time runs out
+	private fun timeRunsOut(){
+		Settings.atAll(ChatColor.GOLD.toString() + "Time is up!")
+		Settings.atAll(ChatColor.RED.toString() + "Challenge has stopped")
+		Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.gameMode = GameMode.SPECTATOR }
+		Main.timerService?.getInstance()?.toggle()
+	}
+
 	//check if timer is reversed
 	fun isReversed(): Boolean {
 		return reversed
 	}
 
-	//return secord timer is running
+	//return second timer is running
 	fun getSec(): Int {
 		return this.sec
 	}
@@ -118,7 +130,7 @@ class TimerService(plugin: Plugin) {
 	}
 
 	//set timer seconds
-	private fun setSec(sec: Int) {
+	fun setSec(sec: Int) {
 		this.sec = sec
 	}
 

@@ -19,6 +19,7 @@ class SettingsInv{
 
 	//Generates placeholder items for settings inventory and places them into the inventory
 	fun newInventory(player: Player){
+
 		val empty = ItemStack(Material.BLACK_STAINED_GLASS_PANE)
 		val emptyMeta = empty.itemMeta
 		emptyMeta!!.setDisplayName(" ")
@@ -94,15 +95,15 @@ class SettingsInv{
 		}
 
 		when (this.hardcore) {
-			Settings.Hardcore.NUHC -> inv.setItem(19,nuhc);
-			Settings.Hardcore.UHC -> inv.setItem(19,uhc);
-			Settings.Hardcore.UUHC -> inv.setItem(19,uuhc);
+			Settings.Hardcore.NUHC -> inv.setItem(19,nuhc)
+			Settings.Hardcore.UHC -> inv.setItem(19,uhc)
+			Settings.Hardcore.UUHC -> inv.setItem(19,uuhc)
 		}
 
-		inv.setItem(1,health);
-		inv.setItem(22,dmg);
-		inv.setItem(7,challenges);
-		inv.setItem(25,timer);
+		inv.setItem(1,health)
+		inv.setItem(22,dmg)
+		inv.setItem(7,challenges)
+		inv.setItem(25,timer)
 
 		player.openInventory(inv)
 	}
