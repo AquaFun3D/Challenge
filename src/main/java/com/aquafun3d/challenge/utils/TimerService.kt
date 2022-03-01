@@ -23,6 +23,7 @@ class TimerService(plugin: Plugin) {
 
 	//initialize the runnable timer
 	init {
+		sec = Main.timerConfig!!.getInt("timer.time")
 		Bukkit.getScheduler().scheduleSyncRepeatingTask( plugin, {
 			if (state === TimerState.RUNNING && lastSec != LocalDateTime.now().second) {
 				lastSec = LocalDateTime.now().second
@@ -52,10 +53,11 @@ class TimerService(plugin: Plugin) {
 		state = if(getState() != TimerState.RUNNING){
 			val cfg = Main.timerConfig
 			if (cfg!!.getInt("timer.time") != 0){
-				setSec(cfg.getInt("timer.time"));
+				setSec(cfg.getInt("timer.time"))
 			}
 			TimerState.RUNNING
 		}else{
+			Main.timerConfig?.set("timer.time",sec)
 			TimerState.PAUSED
 		}
 	}
