@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.commands
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty
@@ -26,8 +26,8 @@ class StartCommand:CommandExecutor {
 			world.setGameRule(ANNOUNCE_ADVANCEMENTS,false)
 		}
 		Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.gameMode = GameMode.SURVIVAL }
-		Settings.atAll(ChatColor.LIGHT_PURPLE.toString() + "Challenge started")
-		if(Main.settingsInv?.getHardcore() == Settings.Hardcore.UHC){
+		Utils.atAll(ChatColor.LIGHT_PURPLE.toString() + "Challenge started")
+		if(Main.settingsInv?.getHardcore() == Utils.Hardcore.UHC){
 			for (world in Bukkit.getWorlds()) {
 				world.setGameRule(NATURAL_REGENERATION, false)
 			}

@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.listeners
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty
 import org.bukkit.entity.Player
@@ -86,27 +86,27 @@ class SettingsInvListener: Listener {
 
 		if (item.itemMeta!!.displayName == ChatColor.GREEN.toString() + "No Ultra Hardcore") {
 			if (e.isLeftClick) {
-				Main.settingsInv?.setHardcore(Settings.Hardcore.UHC)
+				Main.settingsInv?.setHardcore(Utils.Hardcore.UHC)
 			} else if (e.isRightClick) {
-				Main.settingsInv?.setHardcore(Settings.Hardcore.UUHC)
+				Main.settingsInv?.setHardcore(Utils.Hardcore.UUHC)
 			}
 			Main.settingsInv?.newInventory(player)
 		}
 
 		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Ultra Hardcore") {
 			if (e.isLeftClick) {
-				Main.settingsInv?.setHardcore(Settings.Hardcore.UUHC)
+				Main.settingsInv?.setHardcore(Utils.Hardcore.UUHC)
 			} else if (e.isRightClick) {
-				Main.settingsInv?.setHardcore(Settings.Hardcore.NUHC)
+				Main.settingsInv?.setHardcore(Utils.Hardcore.NUHC)
 			}
 			Main.settingsInv?.newInventory(player)
 		}
 
 		if (item.itemMeta!!.displayName == ChatColor.RED.toString() + "Ultra Ultra Hardcore") {
 			if (e.isLeftClick) {
-				Main.settingsInv?.setHardcore(Settings.Hardcore.NUHC)
+				Main.settingsInv?.setHardcore(Utils.Hardcore.NUHC)
 			} else if (e.isRightClick) {
-				Main.settingsInv?.setHardcore(Settings.Hardcore.UHC)
+				Main.settingsInv?.setHardcore(Utils.Hardcore.UHC)
 			}
 			Main.settingsInv?.newInventory(player)
 		}

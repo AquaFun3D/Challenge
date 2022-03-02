@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.listeners
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.GameMode
@@ -20,9 +20,9 @@ class ChallengeListeners: Listener {
 	fun onPlayerDeath(e: PlayerDeathEvent) {
 		val player = e.entity
 		if (!Main.timerService?.getInstance()?.isPaused()!!) {
-			Settings.atAll(ChatColor.YELLOW.toString() + "Player " + ChatColor.GOLD.toString() + player.name + ChatColor.YELLOW.toString() + " died")
-			Settings.atAll(ChatColor.RED.toString() + "Challenge has stopped")
-			Settings.atAll(ChatColor.GREEN.toString() + "Time wasted: " + ChatColor.GOLD.toString() + Main.timerService?.getInstance()?.getTimerString())
+			Utils.atAll(ChatColor.YELLOW.toString() + "Player " + ChatColor.GOLD.toString() + player.name + ChatColor.YELLOW.toString() + " died")
+			Utils.atAll(ChatColor.RED.toString() + "Challenge has stopped")
+			Utils.atAll(ChatColor.GREEN.toString() + "Time wasted: " + ChatColor.GOLD.toString() + Main.timerService?.getInstance()?.getTimerString())
 			Bukkit.getOnlinePlayers().forEach { p: Player -> p.gameMode = GameMode.SPECTATOR }
 			Main.timerService?.getInstance()?.toggle()
 		}
@@ -32,8 +32,8 @@ class ChallengeListeners: Listener {
 	@EventHandler
 	fun onPlayerWin(e: EntityDeathEvent) {
 		if (e.entity is EnderDragon) {
-			Settings.atAll(ChatColor.GREEN.toString() + "Time: " + ChatColor.GOLD.toString() + Main.timerService?.getInstance()?.getTimerString())
-			Settings.atAll(ChatColor.GOLD.toString() + "Challenge won, you killed the Enderdragon!")
+			Utils.atAll(ChatColor.GREEN.toString() + "Time: " + ChatColor.GOLD.toString() + Main.timerService?.getInstance()?.getTimerString())
+			Utils.atAll(ChatColor.GOLD.toString() + "Challenge won, you killed the Enderdragon!")
 			Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.gameMode = GameMode.SPECTATOR }
 			Main.timerService?.getInstance()?.toggle()
 		}

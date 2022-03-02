@@ -14,7 +14,7 @@ class SettingsInv{
 
 	private var difficulty: Difficulty = Difficulty.EASY
 	private var damage: Double = 1.0
-	private var hardcore: Settings.Hardcore = Settings.Hardcore.NUHC
+	private var hardcore: Utils.Hardcore = Utils.Hardcore.NUHC
 	private var health: Int = 20
 	private val inv: Inventory = Bukkit.createInventory(null,27, "" + ChatColor.DARK_PURPLE + "Challenge Settings")
 
@@ -26,10 +26,10 @@ class SettingsInv{
 			health = Main.challengeConfig!!.getInt("health")
 		}
 		if(Main.challengeConfig!!.contains(("hardcore"))){
-			hardcore = Settings.stringToHardcore(Main.challengeConfig!!.getString("hardcore"))
+			hardcore = Utils.stringToHardcore(Main.challengeConfig!!.getString("hardcore"))
 		}
 		if(Main.challengeConfig!!.contains(("difficulty"))){
-			difficulty = Settings.stringToDifficulty(Main.challengeConfig!!.getString("difficulty"))
+			difficulty = Utils.stringToDifficulty(Main.challengeConfig!!.getString("difficulty"))
 		}
 	}
 
@@ -111,9 +111,9 @@ class SettingsInv{
 		}
 
 		when (this.hardcore) {
-			Settings.Hardcore.NUHC -> inv.setItem(19,nuhc)
-			Settings.Hardcore.UHC -> inv.setItem(19,uhc)
-			Settings.Hardcore.UUHC -> inv.setItem(19,uuhc)
+			Utils.Hardcore.NUHC -> inv.setItem(19,nuhc)
+			Utils.Hardcore.UHC -> inv.setItem(19,uhc)
+			Utils.Hardcore.UUHC -> inv.setItem(19,uuhc)
 		}
 
 		inv.setItem(1,health)
@@ -147,11 +147,11 @@ class SettingsInv{
 		this.damage = dmg
 	}
 
-	fun getHardcore(): Settings.Hardcore{
+	fun getHardcore(): Utils.Hardcore{
 		return  this.hardcore
 	}
 
-	fun setHardcore(value: Settings.Hardcore){
+	fun setHardcore(value: Utils.Hardcore){
 		this.hardcore = value
 	}
 

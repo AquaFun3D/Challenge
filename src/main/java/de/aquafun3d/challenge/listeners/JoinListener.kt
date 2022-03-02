@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.listeners
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.attribute.Attribute
@@ -21,7 +21,7 @@ class JoinListener : Listener {
 	@EventHandler
 	fun onJoin(e: PlayerJoinEvent) {
 		val player: Player = e.player
-		e.joinMessage = Settings.PREFIX + ChatColor.DARK_PURPLE +  ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has joined"
+		e.joinMessage = Utils.PREFIX + ChatColor.DARK_PURPLE +  ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has joined"
 		val board: Scoreboard = Bukkit.getScoreboardManager()!!.newScoreboard
 		val obj: Objective = board.registerNewObjective("health", "health", "health",RenderType.HEARTS)
 		obj.getScore("health").score = 1
@@ -42,6 +42,6 @@ class JoinListener : Listener {
 	@EventHandler
 	fun onLeave(e: PlayerQuitEvent) {
 		val player: Player = e.player
-		e.quitMessage = Settings.PREFIX + ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has left"
+		e.quitMessage = Utils.PREFIX + ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has left"
 	}
 }

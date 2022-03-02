@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.listeners
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -17,8 +17,8 @@ class DmgListener : Listener {
 	fun onDmg(e: EntityDamageEvent) {
 		if (e.entity is Player) {
 			e.damage = e.damage * Main.settingsInv?.getDmg()!!
-			if (Settings.dmgListenerToggle) {
-				val cause: String? = Settings.damageCauseMap[e.cause]
+			if (Utils.dmgListenerToggle) {
+				val cause: String? = Utils.damageCauseMap[e.cause]
 				var amountd = e.finalDamage / 2
 				amountd = (amountd * 100).roundToInt() / 100.0
 				val amounts = amountd.toString()
@@ -28,7 +28,7 @@ class DmgListener : Listener {
 							|| e.cause.toString() == "PROJECTILE")
 				) {
 					if (amountd > 0.01) {
-						Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.sendMessage(Settings.dmgMessage(e.entity.name, amounts, cause!!)) }
+						Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.sendMessage(Utils.dmgMessage(e.entity.name, amounts, cause!!)) }
 					}
 				}
 			}
@@ -37,14 +37,14 @@ class DmgListener : Listener {
 
 	@EventHandler
 	fun onDmg(e: EntityDamageByEntityEvent){
-		if (Settings.dmgListenerToggle) {
+		if (Utils.dmgListenerToggle) {
 			val attacker: String = e.damager.name.replace('_',' ')
 			if (e.entity is Player) {
 				var damageAmount: Double = e.finalDamage / 2
 				damageAmount = (damageAmount * 100).roundToInt() / 100.0
 				val amounts = damageAmount.toString()
 				if (damageAmount > 0.01) {
-					Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.sendMessage(Settings.dmgMessage(e.entity.name, amounts, attacker)) }
+					Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.sendMessage(Utils.dmgMessage(e.entity.name, amounts, attacker)) }
 				}
 			}
 		}

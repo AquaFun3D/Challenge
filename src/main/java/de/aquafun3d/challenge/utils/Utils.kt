@@ -6,7 +6,7 @@ import org.bukkit.Difficulty
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageEvent
 
-object Settings {
+object Utils {
 	//Challenge Prefix
 	val PREFIX: String = "" + ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "Challenge" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_PURPLE
 

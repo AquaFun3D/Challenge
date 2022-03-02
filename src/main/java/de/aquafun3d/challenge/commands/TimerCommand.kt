@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.commands
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -17,14 +17,14 @@ class TimerCommand: CommandExecutor {
 		}
 		if(sender.isOp) {
 			if (args.size != 1 || args[0] != "toggle" && args[0] != "reset"){
-				sender.sendMessage(Settings.PREFIX + ChatColor.GREEN + "Please use " + ChatColor.GOLD + "./timer toggle")
+				sender.sendMessage(Utils.PREFIX + ChatColor.GREEN + "Please use " + ChatColor.GOLD + "./timer toggle")
 				return false
 			}else {
 				if (args[0] == "toggle"){
 					Main.timerService?.getInstance()?.toggle()
 				}else{
 					Main.timerService?.getInstance()?.reset()
-					sender.sendMessage(Settings.PREFIX + ChatColor.RED + "Timer reset")
+					sender.sendMessage(Utils.PREFIX + ChatColor.RED + "Timer reset")
 				}
 			}
 		}

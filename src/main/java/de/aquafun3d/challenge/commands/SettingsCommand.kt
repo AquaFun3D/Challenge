@@ -1,7 +1,7 @@
 package de.aquafun3d.challenge.commands
 
 import de.aquafun3d.challenge.Main
-import de.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.utils.Utils
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.GameRule.NATURAL_REGENERATION
@@ -24,7 +24,7 @@ class SettingsCommand: CommandExecutor {
 						Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.getAttribute(Attribute.GENERIC_MAX_HEALTH)!!.baseValue = 20.0
 						}
 					}
-					Settings.send("" + ChatColor.GREEN + "Setting reset", sender)
+					Utils.send("" + ChatColor.GREEN + "Setting reset", sender)
 				}else{
 					Main.settingsInv?.newInventory(sender)
 				}

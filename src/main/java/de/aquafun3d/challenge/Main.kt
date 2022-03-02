@@ -18,7 +18,7 @@ class Main : JavaPlugin() {
         settingsInv = SettingsInv()
         timerInv = TimerInv()
         challengeInv = ChallengeInv()
-        Settings.fillMap()
+        Utils.fillMap()
 
         commandRegistration()
         listenerRegistration()
