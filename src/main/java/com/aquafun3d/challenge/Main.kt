@@ -12,7 +12,7 @@ class Main : JavaPlugin() {
     override fun onEnable() {
         Bukkit.getLogger().fine("Plugin activated")
 
-        timerConfig = TimerConfig()
+        challengeConfig = ChallengeConfig()
         timerService = TimerService(this)
         waypointConfig = WaypointConfig()
         settingsInv = SettingsInv()
@@ -26,6 +26,7 @@ class Main : JavaPlugin() {
 
     override fun onDisable() {
         Bukkit.getLogger().fine("Plugin deactivated")
+        challengeConfig?.set("time", timerService!!.getSec())
 	}
 
     private fun commandRegistration() {
@@ -49,7 +50,7 @@ class Main : JavaPlugin() {
     //Global objects (Static one time instances)
     companion object {
         val pluginManager: PluginManager = Bukkit.getPluginManager()
-        var timerConfig: TimerConfig? = null
+        var challengeConfig: ChallengeConfig? = null
         var waypointConfig: WaypointConfig? = null
         var timerService: TimerService? = null
         var settingsInv: SettingsInv? = null

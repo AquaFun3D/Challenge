@@ -2,6 +2,7 @@ package com.aquafun3d.challenge.utils
 
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
+import org.bukkit.Difficulty
 import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageEvent
 
@@ -11,7 +12,7 @@ object Settings {
 
 	//Sends message to player with Challenge prefix
 	fun send(message: String, player : Player){
-		player.sendMessage("$PREFIX $message")
+		player.sendMessage("$PREFIX$message")
 	}
 
 	//Sends message to all players with Challenge prefix
@@ -32,6 +33,24 @@ object Settings {
 	//Hardcore modes enum
 	enum class Hardcore {
 		NUHC, UHC, UUHC
+	}
+
+	fun stringToHardcore(s: String):Hardcore{
+		return when (s){
+			"NUHC" -> Hardcore.NUHC
+			"UHC" -> Hardcore.UHC
+			"UUHC" -> Hardcore.UUHC
+			else -> Hardcore.NUHC
+		}
+	}
+
+	fun stringToDifficulty(s: String):Difficulty{
+		return when (s){
+			"EASY" -> Difficulty.EASY
+			"NORMAL" -> Difficulty.NORMAL
+			"HARD" -> Difficulty.HARD
+			else -> Difficulty.PEACEFUL
+		}
 	}
 
 	//Map with better damagesource descriptions

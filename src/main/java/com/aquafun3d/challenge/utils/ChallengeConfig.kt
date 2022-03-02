@@ -5,7 +5,7 @@ import java.io.File
 import java.io.IOException
 
 
-class TimerConfig {
+class ChallengeConfig {
 	private var file: File? = null
 	private var config: YamlConfiguration? = null
 
@@ -15,7 +15,7 @@ class TimerConfig {
 		if (!dir.exists()) {
 			dir.mkdirs()
 		}
-		file = File(dir, "timer_config.yml")
+		file = File(dir, "challenge_config.yml")
 		if (!file!!.exists()) {
 			try {
 				file!!.createNewFile()
@@ -50,6 +50,20 @@ class TimerConfig {
 		return if (!contains(path)) {
 			0
 		} else config?.getInt(path)!!
+	}
+
+	//get string by path
+	fun getString(path: String): String {
+		return if (!contains(path)) {
+			""
+		} else config?.getString(path)!!
+	}
+
+	//get double by path
+	fun getDouble(path: String): Double {
+		return if (!contains(path)) {
+			0.0
+		} else config?.getDouble(path)!!
 	}
 
 }

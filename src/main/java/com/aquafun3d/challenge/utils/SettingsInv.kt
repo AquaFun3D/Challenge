@@ -1,5 +1,6 @@
 package com.aquafun3d.challenge.utils
 
+import com.aquafun3d.challenge.Main
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty
@@ -16,6 +17,21 @@ class SettingsInv{
 	private var hardcore: Settings.Hardcore = Settings.Hardcore.NUHC
 	private var health: Int = 20
 	private val inv: Inventory = Bukkit.createInventory(null,27, "" + ChatColor.DARK_PURPLE + "Challenge Settings")
+
+	init {
+		if(Main.challengeConfig!!.contains("damage")){
+			damage = Main.challengeConfig!!.getDouble("damage")
+		}
+		if(Main.challengeConfig!!.contains("health")){
+			health = Main.challengeConfig!!.getInt("health")
+		}
+		if(Main.challengeConfig!!.contains(("hardcore"))){
+			hardcore = Settings.stringToHardcore(Main.challengeConfig!!.getString("hardcore"))
+		}
+		if(Main.challengeConfig!!.contains(("difficulty"))){
+			difficulty = Settings.stringToDifficulty(Main.challengeConfig!!.getString("difficulty"))
+		}
+	}
 
 	//Generates placeholder items for settings inventory and places them into the inventory
 	fun newInventory(player: Player){
@@ -106,6 +122,13 @@ class SettingsInv{
 		inv.setItem(25,timer)
 
 		player.openInventory(inv)
+	}
+
+	fun writeSettings(){
+		Main.challengeConfig?.set("health",health)
+		Main.challengeConfig?.set("damage",damage)
+		Main.challengeConfig?.set("hardcore",hardcore.toString())
+		Main.challengeConfig?.set("difficulty",difficulty.toString())
 	}
 
 	fun getHealth(): Int {

@@ -30,7 +30,6 @@ class StartCommand:CommandExecutor {
 		if(Main.settingsInv?.getHardcore() == Settings.Hardcore.UHC){
 			for (world in Bukkit.getWorlds()) {
 				world.setGameRule(NATURAL_REGENERATION, false)
-
 			}
 		}
 		when (Main.settingsInv?.getDifficulty()) {
@@ -47,6 +46,7 @@ class StartCommand:CommandExecutor {
 			Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.health = Main.settingsInv?.getHealth()!!.toDouble() }
 		}
 		Main.timerService?.getInstance()?.toggle()
+		Main.settingsInv?.writeSettings()
 		return false
 	}
 }
