@@ -1,8 +1,8 @@
-package com.aquafun3d.challenge
+package de.aquafun3d.challenge
 
-import com.aquafun3d.challenge.commands.*
-import com.aquafun3d.challenge.listeners.*
-import com.aquafun3d.challenge.utils.*
+import de.aquafun3d.challenge.commands.*
+import de.aquafun3d.challenge.listeners.*
+import de.aquafun3d.challenge.utils.*
 import org.bukkit.Bukkit
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin

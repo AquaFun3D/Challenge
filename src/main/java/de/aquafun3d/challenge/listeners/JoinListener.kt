@@ -1,7 +1,7 @@
-package com.aquafun3d.challenge.listeners
+package de.aquafun3d.challenge.listeners
 
-import com.aquafun3d.challenge.Main
-import com.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.Main
+import de.aquafun3d.challenge.utils.Settings
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.attribute.Attribute
@@ -28,6 +28,7 @@ class JoinListener : Listener {
 		obj.displaySlot = DisplaySlot.PLAYER_LIST
 		player.scoreboard = board
 		player.getAttribute(Attribute.GENERIC_MAX_HEALTH)!!.baseValue = Main.settingsInv?.getHealth()!!.toDouble()
+		player.health = Main.settingsInv?.getHealth()!!.toDouble()
 
 		if (Main.challengeConfig!!.getInt("time") != 0) {
 			Main.timerService?.setTimerActionbar(player)

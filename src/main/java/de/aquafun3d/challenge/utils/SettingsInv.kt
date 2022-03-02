@@ -1,6 +1,6 @@
-package com.aquafun3d.challenge.utils
+package de.aquafun3d.challenge.utils
 
-import com.aquafun3d.challenge.Main
+import de.aquafun3d.challenge.Main
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty

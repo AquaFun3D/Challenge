@@ -1,4 +1,4 @@
-package com.aquafun3d.challenge.utils
+package de.aquafun3d.challenge.utils
 
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor

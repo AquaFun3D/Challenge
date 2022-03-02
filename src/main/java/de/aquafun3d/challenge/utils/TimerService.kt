@@ -1,6 +1,6 @@
-package com.aquafun3d.challenge.utils
+package de.aquafun3d.challenge.utils
 
-import com.aquafun3d.challenge.Main
+import de.aquafun3d.challenge.Main
 import net.md_5.bungee.api.ChatMessageType
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.Bukkit

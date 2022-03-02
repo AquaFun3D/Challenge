@@ -1,6 +1,6 @@
-package com.aquafun3d.challenge.listeners
+package de.aquafun3d.challenge.listeners
 
-import com.aquafun3d.challenge.Main
+import de.aquafun3d.challenge.Main
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

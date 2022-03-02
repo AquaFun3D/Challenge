@@ -1,7 +1,7 @@
-package com.aquafun3d.challenge.listeners
+package de.aquafun3d.challenge.listeners
 
-import com.aquafun3d.challenge.Main
-import com.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.Main
+import de.aquafun3d.challenge.utils.Settings
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty
 import org.bukkit.entity.Player

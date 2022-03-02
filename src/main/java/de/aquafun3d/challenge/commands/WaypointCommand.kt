@@ -1,7 +1,7 @@
-package com.aquafun3d.challenge.commands
+package de.aquafun3d.challenge.commands
 
-import com.aquafun3d.challenge.Main
-import com.aquafun3d.challenge.utils.Settings
+import de.aquafun3d.challenge.Main
+import de.aquafun3d.challenge.utils.Settings
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor

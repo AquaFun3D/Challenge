@@ -1,6 +1,6 @@
 name: Challenge
 version: '${project.version}'
-main: com.aquafun3d.challenge.Main
+main: de.aquafun3d.challenge.Main
 api-version: 1.18
 authors: [ AquaFun3D ]
 description: Minecraft Challenge Plugin in Kotlin
