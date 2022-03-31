@@ -1,6 +1,7 @@
 package de.aquafun3d.challenge.utils
 
 import de.aquafun3d.challenge.Main
+import net.kyori.adventure.text.Component
 import net.md_5.bungee.api.ChatMessageType
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.Bukkit
@@ -38,7 +39,7 @@ class TimerService(plugin: Plugin) {
 			}
 			if (state === TimerState.RUNNING) {
 				for (p in Bukkit.getOnlinePlayers()) {
-					p.spigot().sendMessage(ChatMessageType.ACTION_BAR,TextComponent(getTimerString()))
+					p.sendActionBar(Component.text(getTimerString()))
 				}
 			} else {
 				for (p in Bukkit.getOnlinePlayers()) {
@@ -144,7 +145,7 @@ class TimerService(plugin: Plugin) {
 
 	//display actionbar for timer to player
 	fun setTimerActionbar(p: Player){
-		p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent( "" + ChatColor.GREEN + "" + ChatColor.ITALIC + "Timer paused"))
+		p.sendActionBar(Component.text("" + ChatColor.GREEN + "" + ChatColor.ITALIC + "Timer paused"))
 	}
 
 }

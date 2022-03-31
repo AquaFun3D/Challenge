@@ -16,7 +16,7 @@ class ChallengeInvListener: Listener {
 		val player = e.whoClicked as Player
 		val item: ItemStack? = e.currentItem
 
-		if (e.view.title == ChatColor.DARK_PURPLE.toString() + "Challenges") {
+		if (e.view.title().toString() == ChatColor.DARK_PURPLE.toString() + "Challenges") {
 			e.isCancelled = true
 		}
 
@@ -24,7 +24,7 @@ class ChallengeInvListener: Listener {
 			return
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.RED.toString() + "Back") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.RED.toString() + "Back") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.newInventory(player)
 			}

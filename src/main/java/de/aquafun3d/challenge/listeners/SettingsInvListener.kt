@@ -19,7 +19,7 @@ class SettingsInvListener: Listener {
 		val player = e.whoClicked as Player
 		val item: ItemStack? = e.currentItem
 
-		if (e.view.title == ChatColor.DARK_PURPLE.toString() + "Challenge Settings") {
+		if (e.view.title().toString() == ChatColor.DARK_PURPLE.toString() + "Challenge Settings") {
 			e.isCancelled = true
 		}
 
@@ -27,7 +27,7 @@ class SettingsInvListener: Listener {
 			return
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Health") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.YELLOW.toString() + "Health") {
 			if (e.isShiftClick) {
 				Main.settingsInv?.setHealth(20)
 			} else if (e.isLeftClick) {
@@ -38,7 +38,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Damage multiplier") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.YELLOW.toString() + "Damage multiplier") {
 			if (e.isShiftClick) {
 				Main.settingsInv?.setDmg(1.0)
 			} else if (e.isLeftClick) {
@@ -49,15 +49,15 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Challenges"){
+		if(item.itemMeta!!.displayName().toString() == ChatColor.YELLOW.toString() + "Challenges"){
 			Main.challengeInv?.newInventory(player)
 		}
 
-		if(item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Timer"){
+		if(item.itemMeta!!.displayName().toString() == ChatColor.YELLOW.toString() + "Timer"){
 			Main.timerInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.GREEN.toString() + "Easy") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.GREEN.toString() + "Easy") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setDifficulty(Difficulty.NORMAL)
 			} else if (e.isRightClick) {
@@ -66,7 +66,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Normal") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.YELLOW.toString() + "Normal") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setDifficulty(Difficulty.HARD)
 			} else if (e.isRightClick) {
@@ -75,7 +75,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.RED.toString() + "Hard") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.RED.toString() + "Hard") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setDifficulty(Difficulty.EASY)
 			} else if (e.isRightClick) {
@@ -84,7 +84,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.GREEN.toString() + "No Ultra Hardcore") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.GREEN.toString() + "No Ultra Hardcore") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setHardcore(Utils.Hardcore.UHC)
 			} else if (e.isRightClick) {
@@ -93,7 +93,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.YELLOW.toString() + "Ultra Hardcore") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.YELLOW.toString() + "Ultra Hardcore") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setHardcore(Utils.Hardcore.UUHC)
 			} else if (e.isRightClick) {
@@ -102,7 +102,7 @@ class SettingsInvListener: Listener {
 			Main.settingsInv?.newInventory(player)
 		}
 
-		if (item.itemMeta!!.displayName == ChatColor.RED.toString() + "Ultra Ultra Hardcore") {
+		if (item.itemMeta!!.displayName().toString() == ChatColor.RED.toString() + "Ultra Ultra Hardcore") {
 			if (e.isLeftClick) {
 				Main.settingsInv?.setHardcore(Utils.Hardcore.NUHC)
 			} else if (e.isRightClick) {

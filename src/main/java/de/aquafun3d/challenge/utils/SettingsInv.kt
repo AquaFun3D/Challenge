@@ -1,6 +1,7 @@
 package de.aquafun3d.challenge.utils
 
 import de.aquafun3d.challenge.Main
+import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty
@@ -16,7 +17,7 @@ class SettingsInv{
 	private var damage: Double = 1.0
 	private var hardcore: Utils.Hardcore = Utils.Hardcore.NUHC
 	private var health: Int = 20
-	private val inv: Inventory = Bukkit.createInventory(null,27, "" + ChatColor.DARK_PURPLE + "Challenge Settings")
+	private val inv: Inventory = Bukkit.createInventory(null,27,Component.text("" + ChatColor.DARK_PURPLE + "Challenge Settings"))
 
 	init {
 		if(Main.challengeConfig!!.contains("damage")){
@@ -38,52 +39,52 @@ class SettingsInv{
 
 		val empty = ItemStack(Material.BLACK_STAINED_GLASS_PANE)
 		val emptyMeta = empty.itemMeta
-		emptyMeta!!.setDisplayName(" ")
+		emptyMeta!!.displayName(Component.text(" "))
 		empty.itemMeta = emptyMeta
 
 		val health = ItemStack(Material.HEART_OF_THE_SEA, this.health)
 		val healthMeta = health.itemMeta
-		healthMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Health")
+		healthMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Health"))
 		health.itemMeta = healthMeta
 
 		val nuhc = ItemStack(Material.APPLE)
 		val nuhcMeta = nuhc.itemMeta
-		nuhcMeta!!.setDisplayName(ChatColor.GREEN.toString() + "No Ultra Hardcore")
+		nuhcMeta!!.displayName(Component.text(ChatColor.GREEN.toString() + "No Ultra Hardcore"))
 		nuhc.itemMeta = nuhcMeta
 
 		val uhc = ItemStack(Material.GOLDEN_APPLE)
 		val uhcMeta = uhc.itemMeta
-		uhcMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Ultra Hardcore")
+		uhcMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Ultra Hardcore"))
 		uhc.itemMeta = uhcMeta
 
 		val uuhc = ItemStack(Material.ENCHANTED_GOLDEN_APPLE)
 		val uuhcMeta = uuhc.itemMeta
-		uuhcMeta!!.setDisplayName(ChatColor.RED.toString() + "Ultra Ultra Hardcore")
+		uuhcMeta!!.displayName(Component.text(ChatColor.RED.toString() + "Ultra Ultra Hardcore"))
 		uuhc.itemMeta = uuhcMeta
 
 		val peace = ItemStack(Material.NETHERITE_INGOT)
 		val peaceMeta = peace.itemMeta
-		peaceMeta!!.setDisplayName(ChatColor.LIGHT_PURPLE.toString() + "Peaceful")
+		peaceMeta!!.displayName(Component.text(ChatColor.LIGHT_PURPLE.toString() + "Peaceful"))
 		peace.itemMeta = peaceMeta
 
 		val easy = ItemStack(Material.COPPER_INGOT)
 		val easyMeta = easy.itemMeta
-		easyMeta!!.setDisplayName(ChatColor.GREEN.toString() + "Easy")
+		easyMeta!!.displayName(Component.text(ChatColor.GREEN.toString() + "Easy"))
 		easy.itemMeta = easyMeta
 
 		val normal = ItemStack(Material.IRON_INGOT)
 		val normalMeta = normal.itemMeta
-		normalMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Normal")
+		normalMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Normal"))
 		normal.itemMeta = normalMeta
 
 		val hard = ItemStack(Material.GOLD_INGOT)
 		val hardMeta = hard.itemMeta
-		hardMeta!!.setDisplayName(ChatColor.RED.toString() + "Hard")
+		hardMeta!!.displayName(Component.text(ChatColor.RED.toString() + "Hard"))
 		hard.itemMeta = hardMeta
 
 		val dmg = ItemStack(Material.ARROW)
 		val dmgMeta = dmg.itemMeta
-		dmgMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Damage multiplier")
+		dmgMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Damage multiplier"))
 		val lore = ArrayList<String>()
 		lore.add(damage.toString())
 		dmgMeta.lore = lore
@@ -91,12 +92,12 @@ class SettingsInv{
 
 		val challenges = ItemStack(Material.TOTEM_OF_UNDYING)
 		val challengesMeta = challenges.itemMeta
-		challengesMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Challenges")
+		challengesMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Challenges"))
 		challenges.itemMeta = challengesMeta
 
 		val timer = ItemStack(Material.CLOCK)
 		val timerMeta = timer.itemMeta
-		timerMeta!!.setDisplayName(ChatColor.YELLOW.toString() + "Timer")
+		timerMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Timer"))
 		timer.itemMeta = timerMeta
 
 		for (j in 0..26) {

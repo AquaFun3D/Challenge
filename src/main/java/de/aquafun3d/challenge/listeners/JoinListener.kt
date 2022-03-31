@@ -2,6 +2,7 @@ package de.aquafun3d.challenge.listeners
 
 import de.aquafun3d.challenge.Main
 import de.aquafun3d.challenge.utils.Utils
+import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.attribute.Attribute
@@ -21,9 +22,9 @@ class JoinListener : Listener {
 	@EventHandler
 	fun onJoin(e: PlayerJoinEvent) {
 		val player: Player = e.player
-		e.joinMessage = Utils.PREFIX + ChatColor.DARK_PURPLE +  ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has joined"
-		val board: Scoreboard = Bukkit.getScoreboardManager()!!.newScoreboard
-		val obj: Objective = board.registerNewObjective("health", "health", "health",RenderType.HEARTS)
+		e.joinMessage(Component.text(Utils.PREFIX + ChatColor.DARK_PURPLE +  ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has joined"))
+		val board: Scoreboard = Bukkit.getScoreboardManager().newScoreboard
+		val obj: Objective = board.registerNewObjective("health", "health", Component.text("health"),RenderType.HEARTS)
 		obj.getScore("health").score = 1
 		obj.displaySlot = DisplaySlot.PLAYER_LIST
 		player.scoreboard = board
@@ -42,6 +43,6 @@ class JoinListener : Listener {
 	@EventHandler
 	fun onLeave(e: PlayerQuitEvent) {
 		val player: Player = e.player
-		e.quitMessage = Utils.PREFIX + ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has left"
+		e.quitMessage(Component.text(Utils.PREFIX + ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has left"))
 	}
 }
