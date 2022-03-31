@@ -17,7 +17,7 @@ class SettingsInv{
 	private var damage: Double = 1.0
 	private var hardcore: Utils.Hardcore = Utils.Hardcore.NUHC
 	private var health: Int = 20
-	private val inv: Inventory = Bukkit.createInventory(null,27,Component.text("" + ChatColor.DARK_PURPLE + "Challenge Settings"))
+	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text(ChatColor.DARK_PURPLE.toString() + "Challenge Settings"))
 
 	init {
 		if(Main.challengeConfig!!.contains("damage")){
@@ -85,9 +85,9 @@ class SettingsInv{
 		val dmg = ItemStack(Material.ARROW)
 		val dmgMeta = dmg.itemMeta
 		dmgMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Damage multiplier"))
-		val lore = ArrayList<String>()
-		lore.add(damage.toString())
-		dmgMeta.lore = lore
+		val lore = ArrayList<Component>()
+		lore.add(Component.text(damage.toString()))
+		dmgMeta.lore(lore)
 		dmg.itemMeta = dmgMeta
 
 		val challenges = ItemStack(Material.TOTEM_OF_UNDYING)

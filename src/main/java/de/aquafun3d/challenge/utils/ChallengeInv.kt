@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack
 
 class ChallengeInv {
 
-	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text("" + ChatColor.DARK_PURPLE + "Challenges"))
+	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text(ChatColor.DARK_PURPLE.toString() + "Challenges"))
 
 	fun newInventory(player: Player) {
 

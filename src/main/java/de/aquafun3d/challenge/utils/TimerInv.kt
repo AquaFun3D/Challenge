@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack
 
 class TimerInv {
 
-	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text("" + ChatColor.DARK_PURPLE + "Timer Settings"))
+	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text(ChatColor.DARK_PURPLE.toString() + "Timer Settings"))
 
 	//Generates placeholder items for timer inventory and places them into the inventory
 	fun newInventory(player: Player) {
@@ -44,9 +44,9 @@ class TimerInv {
 		val time = ItemStack(Material.CLOCK)
 		val timeMeta = time.itemMeta
 		timeMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Time"))
-		val lore = ArrayList<String>()
-		lore.add(Main.timerService?.getSec()!!.div(60).toString() + ChatColor.GOLD + " minutes")
-		timeMeta.lore = lore
+		val lore = ArrayList<Component>()
+		lore.add(Component.text(Main.timerService?.getSec()!!.div(60).toString() + ChatColor.GOLD + " minutes"))
+		timeMeta.lore(lore)
 		time.itemMeta = timeMeta
 
 		val reverse = ItemStack(Material.SOUL_LANTERN)

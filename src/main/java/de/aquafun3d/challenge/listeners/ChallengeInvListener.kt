@@ -1,6 +1,7 @@
 package de.aquafun3d.challenge.listeners
 
 import de.aquafun3d.challenge.Main
+import net.kyori.adventure.text.Component
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -16,7 +17,7 @@ class ChallengeInvListener: Listener {
 		val player = e.whoClicked as Player
 		val item: ItemStack? = e.currentItem
 
-		if (e.view.title().toString() == ChatColor.DARK_PURPLE.toString() + "Challenges") {
+		if (e.view.title() == Component.text(ChatColor.DARK_PURPLE.toString() + "Challenges")) {
 			e.isCancelled = true
 		}
 
@@ -24,7 +25,7 @@ class ChallengeInvListener: Listener {
 			return
 		}
 
-		if (item.itemMeta!!.displayName().toString() == ChatColor.RED.toString() + "Back") {
+		if (item.itemMeta!!.displayName() == Component.text(ChatColor.RED.toString() + "Back")) {
 			if (e.isLeftClick) {
 				Main.settingsInv?.newInventory(player)
 			}
