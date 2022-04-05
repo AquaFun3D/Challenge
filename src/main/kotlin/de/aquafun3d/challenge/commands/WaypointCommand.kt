@@ -24,7 +24,7 @@ class WaypointCommand: CommandExecutor{
 			}
 			when(args[0]){
 				"list" -> {
-					val list: ArrayList<String>? = Main.waypointConfig?.getAll("waypoints.")
+					val list: ArrayList<String>? = Main.challengeConfig?.getAll("waypoints.")
 					Utils.send(player,ChatColor.GREEN.toString()  + "Available Waypoints are:")
 					if(list == null || list.size == 0) {
 						Utils.send(player,ChatColor.RED.toString() + "NONE")
@@ -47,7 +47,7 @@ class WaypointCommand: CommandExecutor{
 						}else{
 							args[1]
 						}
-						Main.waypointConfig?.set("waypoints.$str",null)
+						Main.challengeConfig?.set("waypoints.$str",null)
 						Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GOLD + " deleted")
 					}else {
 						Utils.send(player,ChatColor.GOLD.toString() + "You don't have Op permissions")
@@ -63,7 +63,7 @@ class WaypointCommand: CommandExecutor{
 							clear = 1
 							timeClear = LocalDateTime.now().minute
 						}else if(clear == 1) {
-							Main.waypointConfig?.set("waypoints", null)
+							Main.challengeConfig?.set("waypoints", null)
 							Utils.send(player,ChatColor.DARK_RED.toString() + "All waypoints deleted!")
 							clear = 0
 						}
@@ -77,21 +77,21 @@ class WaypointCommand: CommandExecutor{
 					} else {
 						args[0]
 					}
-					if(Main.waypointConfig?.contains("waypoints.$str") == true){
-						val wp: String = Main.waypointConfig?.getString("waypoints.$str.world")!!
-						val x: Int = Main.waypointConfig?.getDouble("waypoints.$str.x")!!.toInt()
-						val y: Int = Main.waypointConfig?.getDouble("waypoints.$str.y")!!.toInt()
-						val z: Int = Main.waypointConfig?.getDouble("waypoints.$str.z")!!.toInt()
+					if(Main.challengeConfig?.contains("waypoints.$str") == true){
+						val wp: String = Main.challengeConfig?.getString("waypoints.$str.world")!!
+						val x: Int = Main.challengeConfig?.getDouble("waypoints.$str.x")!!.toInt()
+						val y: Int = Main.challengeConfig?.getDouble("waypoints.$str.y")!!.toInt()
+						val z: Int = Main.challengeConfig?.getDouble("waypoints.$str.z")!!.toInt()
 						when (wp){
 							"world" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in overworld")
 							"world_nether" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in nether")
 							"world_the_end" -> 	Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in the end")
 						}
 					}else {
-						Main.waypointConfig?.set("waypoints.$str.world", player.world.name)
-						Main.waypointConfig?.set("waypoints.$str.x", player.location.x)
-						Main.waypointConfig?.set("waypoints.$str.y", player.location.y)
-						Main.waypointConfig?.set("waypoints.$str.z", player.location.z)
+						Main.challengeConfig?.set("waypoints.$str.world", player.world.name)
+						Main.challengeConfig?.set("waypoints.$str.x", player.location.x)
+						Main.challengeConfig?.set("waypoints.$str.y", player.location.y)
+						Main.challengeConfig?.set("waypoints.$str.z", player.location.z)
 						val x = player.location.x.toInt()
 						val y = player.location.y.toInt()
 						val z = player.location.z.toInt()

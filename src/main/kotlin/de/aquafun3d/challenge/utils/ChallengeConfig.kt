@@ -45,6 +45,19 @@ class ChallengeConfig {
 		} else config?.get(path)
 	}
 
+	//get everything from config
+	fun getAll(path: String?): ArrayList<String>? {
+		val list = ArrayList<String>()
+		return if (!contains(path!!)) {
+			null
+		} else {
+			for (key in config!!.getConfigurationSection(path!!)!!.getKeys(false)) {
+				list.add(key)
+			}
+			list
+		}
+	}
+
 	//get integer by path
 	fun getInt(path: String): Int {
 		return if (!contains(path)) {

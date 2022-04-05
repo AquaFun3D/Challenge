@@ -14,7 +14,6 @@ class Main : JavaPlugin() {
 
         challengeConfig = ChallengeConfig()
         timerService = TimerService(this)
-        waypointConfig = WaypointConfig()
         settingsInv = SettingsInv()
         timerInv = TimerInv()
         challengeInv = ChallengeInv()
@@ -51,7 +50,6 @@ class Main : JavaPlugin() {
     companion object {
         val pluginManager: PluginManager = Bukkit.getPluginManager()
         var challengeConfig: ChallengeConfig? = null
-        var waypointConfig: WaypointConfig? = null
         var timerService: TimerService? = null
         var settingsInv: SettingsInv? = null
         var timerInv: TimerInv? = null
