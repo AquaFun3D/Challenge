@@ -24,7 +24,9 @@ class TimerService(plugin: Plugin) {
 
 	//initialize the runnable timer
 	init {
-		sec = Main.challengeConfig!!.getInt("time")
+		if(Main.challengeConfig!!.contains("time")) {
+			sec = Main.challengeConfig!!.getInt("time")
+		}
 		Bukkit.getScheduler().scheduleSyncRepeatingTask( plugin, {
 			if (state === TimerState.RUNNING && lastSec != LocalDateTime.now().second) {
 				lastSec = LocalDateTime.now().second
