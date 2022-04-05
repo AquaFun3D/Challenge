@@ -28,7 +28,7 @@ class DmgListener : Listener {
 							|| e.cause.toString() == "PROJECTILE")
 				) {
 					if (amountd > 0.01) {
-						Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.sendMessage(Utils.dmgMessage(e.entity.name, amounts, cause!!)) }
+						Utils.atAll(Utils.dmgMessage(e.entity.name, amounts, cause!!))
 					}
 				}
 			}
@@ -44,7 +44,7 @@ class DmgListener : Listener {
 				damageAmount = (damageAmount * 100).roundToInt() / 100.0
 				val amounts = damageAmount.toString()
 				if (damageAmount > 0.01) {
-					Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.sendMessage(Utils.dmgMessage(e.entity.name, amounts, attacker)) }
+					Utils.atAll(Utils.dmgMessage(e.entity.name, amounts, attacker))
 				}
 			}
 		}

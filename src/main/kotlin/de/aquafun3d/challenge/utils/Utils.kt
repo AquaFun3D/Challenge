@@ -1,5 +1,6 @@
 package de.aquafun3d.challenge.utils
 
+import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Difficulty
@@ -11,15 +12,13 @@ object Utils {
 	val PREFIX: String = "" + ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "Challenge" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_PURPLE
 
 	//Sends message to player with Challenge prefix
-	fun send(message: String, player : Player){
+	fun send(player: Player,message: String){
 		player.sendMessage("$PREFIX$message")
 	}
 
 	//Sends message to all players with Challenge prefix
 	fun atAll(message: String){
-		for(p in Bukkit.getOnlinePlayers()){
-			p.sendMessage("$PREFIX$message")
-		}
+		Bukkit.broadcast(Component.text("$PREFIX$message"))
 	}
 
 	//Global variable to display recieved damage in chat

@@ -20,14 +20,14 @@ class WaypointCommand: CommandExecutor{
 		if (sender is Player) {
 			val player: Player = sender
 			if (args.isEmpty()) {
-				player.sendMessage(Utils.PREFIX + ChatColor.RED + "/waypoint <name> or list/remove/clear")
+				Utils.send(player,ChatColor.RED.toString() + "/waypoint <name> or list/remove/clear")
 			}
 			when(args[0]){
 				"list" -> {
 					val list: ArrayList<String>? = Main.waypointConfig?.getAll("waypoints.")
-					player.sendMessage(Utils.PREFIX + ChatColor.GREEN  + "Available Waypoints are:")
+					Utils.send(player,ChatColor.GREEN.toString()  + "Available Waypoints are:")
 					if(list == null || list.size == 0) {
-						player.sendMessage(Utils.PREFIX + ChatColor.RED + "NONE")
+						Utils.send(player,ChatColor.RED.toString() + "NONE")
 					}else {
 						var out = ""
 						for (i in 0 until list.size) {
@@ -37,7 +37,7 @@ class WaypointCommand: CommandExecutor{
 								list[i]
 							}
 						}
-						player.sendMessage(Utils.PREFIX + ChatColor.LIGHT_PURPLE + out)
+						Utils.send(player,ChatColor.LIGHT_PURPLE.toString() + out)
 					}
 				}
 				"remove" -> {
@@ -50,7 +50,7 @@ class WaypointCommand: CommandExecutor{
 						Main.waypointConfig?.set("waypoints.$str",null)
 						Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GOLD + " deleted")
 					}else {
-						player.sendMessage(Utils.PREFIX + ChatColor.GOLD + "You don't have Op permissions")
+						Utils.send(player,ChatColor.GOLD.toString() + "You don't have Op permissions")
 					}
 				}
 				"clear" -> {
@@ -59,16 +59,16 @@ class WaypointCommand: CommandExecutor{
 							clear = 0
 						}
 						if(clear == 0){
-							player.sendMessage(Utils.PREFIX + ChatColor.RED + "Are you Sure? " + ChatColor.GREEN + "Run Command again.")
+							Utils.send(player,ChatColor.RED.toString() + "Are you Sure? " + ChatColor.GREEN + "Run Command again.")
 							clear = 1
 							timeClear = LocalDateTime.now().minute
 						}else if(clear == 1) {
 							Main.waypointConfig?.set("waypoints", null)
-							player.sendMessage(Utils.PREFIX + ChatColor.DARK_RED + "All waypoints deleted!")
+							Utils.send(player,ChatColor.DARK_RED.toString() + "All waypoints deleted!")
 							clear = 0
 						}
 					} else {
-						player.sendMessage(Utils.PREFIX + ChatColor.GOLD + "You are not Admin!")
+						Utils.send(player,ChatColor.GOLD.toString() + "You are not Admin!")
 					}
 				}
 				else -> {
