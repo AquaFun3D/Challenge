@@ -1,5 +1,5 @@
 # Challenge
-Minecraft Challenge Plugin in Kotlin
+Minecraft Challenge Plugin
 by AquaFun3D
 
 TODO:

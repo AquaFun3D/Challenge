@@ -3,7 +3,7 @@ version: '${project.version}'
 main: de.aquafun3d.challenge.Main
 api-version: 1.18
 authors: [ AquaFun3D ]
-description: Minecraft Challenge Plugin in Kotlin
+description: Minecraft Challenge Plugin
 
 commands:
   timer:
