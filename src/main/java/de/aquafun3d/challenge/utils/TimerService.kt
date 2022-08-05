@@ -103,8 +103,8 @@ class TimerService(plugin: Plugin) {
 
 	//Ends challenge if time runs out
 	private fun timeRunsOut(){
-		Utils.atAll(ChatColor.GOLD.toString() + "Time is up!")
-		Utils.atAll(ChatColor.RED.toString() + "Challenge has stopped")
+		Utils.atAll("${ChatColor.GOLD}Time is up!")
+		Utils.atAll("${ChatColor.RED}Challenge has stopped")
 		Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.gameMode = GameMode.SPECTATOR }
 		Main.timerService?.getInstance()?.toggle()
 	}
@@ -147,7 +147,7 @@ class TimerService(plugin: Plugin) {
 
 	//display actionbar for timer to player
 	fun setTimerActionbar(p: Player){
-		p.sendActionBar(Component.text("" + ChatColor.GREEN + "" + ChatColor.ITALIC + "Timer paused"))
+		p.sendActionBar(Component.text("${ChatColor.GREEN}${ChatColor.ITALIC}Timer paused"))
 	}
 
 }

@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack
 
 class ChallengeInv {
 
-	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text(ChatColor.DARK_PURPLE.toString() + "Challenges"))
+	private val inv: Inventory = Bukkit.createInventory(null,27, Component.text("${ChatColor.DARK_PURPLE}Challenges"))
 
 	fun newInventory(player: Player) {
 
@@ -21,7 +21,7 @@ class ChallengeInv {
 
 		val back = ItemStack(Material.BARRIER)
 		val backMeta = back.itemMeta
-		backMeta!!.displayName(Component.text(ChatColor.RED.toString() + "Back"))
+		backMeta!!.displayName(Component.text("${ChatColor.RED}Back"))
 		back.itemMeta = backMeta
 
 		for (j in 0..26) {

@@ -17,14 +17,14 @@ class TimerCommand: CommandExecutor {
 		}
 		if(sender.isOp) {
 			if (args.size != 1 || args[0] != "toggle" && args[0] != "reset"){
-				Utils.send(sender,ChatColor.GREEN.toString() + "Please use " + ChatColor.GOLD + "./timer toggle")
+				Utils.send(sender,"${ChatColor.GREEN}Please use ${ChatColor.GOLD}./timer toggle")
 				return false
 			}else {
 				if (args[0] == "toggle"){
 					Main.timerService?.getInstance()?.toggle()
 				}else{
 					Main.timerService?.getInstance()?.reset()
-					Utils.send(sender,ChatColor.RED.toString() + "Timer reset")
+					Utils.send(sender,"${ChatColor.RED}Timer reset")
 				}
 			}
 		}

@@ -9,7 +9,7 @@ import org.bukkit.event.entity.EntityDamageEvent
 
 object Utils {
 	//Challenge Prefix
-	val PREFIX: String = "" + ChatColor.DARK_GRAY + "[" + ChatColor.DARK_AQUA + "Challenge" + ChatColor.DARK_GRAY + "] " + ChatColor.DARK_PURPLE
+	val PREFIX: String = "${ChatColor.DARK_GRAY}[${ChatColor.DARK_AQUA}Challenge${ChatColor.DARK_GRAY}] ${ChatColor.DARK_PURPLE}"
 
 	//Sends message to player with Challenge prefix
 	fun send(player: Player,message: String){
@@ -26,7 +26,7 @@ object Utils {
 
 	//Map damage values into a proper string to print
 	fun dmgMessage(player: String, amount: String, source: String ):String{
-		return PREFIX + ChatColor.AQUA + player + ChatColor.GREEN.toString() + " got " + ChatColor.GOLD.toString() + amount + ChatColor.GREEN.toString() + " hearts damage by " + ChatColor.BLUE.toString() + source
+		return "$PREFIX${ChatColor.AQUA}$player${ChatColor.GREEN} got ${ChatColor.GOLD}$amount${ChatColor.GREEN} hearts damage by ${ChatColor.BLUE}$source"
 	}
 
 	//Hardcore modes enum

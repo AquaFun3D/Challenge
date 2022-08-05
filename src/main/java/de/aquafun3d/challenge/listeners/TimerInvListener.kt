@@ -17,7 +17,7 @@ class TimerInvListener: Listener {
 		val player = e.whoClicked as Player
 		val item: ItemStack? = e.currentItem
 
-		if (e.view.title() == Component.text(ChatColor.DARK_PURPLE.toString() + "Timer Settings")) {
+		if (e.view.title() == Component.text("${ChatColor.DARK_PURPLE}Timer Settings")) {
 			e.isCancelled = true
 		}
 
@@ -25,14 +25,14 @@ class TimerInvListener: Listener {
 			return
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.GREEN.toString() + "+5 Minutes")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.GREEN}+5 Minutes")) {
 			if (e.isLeftClick) {
 				Main.timerService?.setSec(Main.timerService?.getSec()!!.plus(300))
 				Main.timerInv?.newInventory(player)
 			}
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.RED.toString() + "-5 Minutes")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.RED}-5 Minutes")) {
 			if (e.isLeftClick) {
 				if(Main.timerService?.getSec()!! < 300){
 					Main.timerService?.setSec(0)
@@ -43,14 +43,14 @@ class TimerInvListener: Listener {
 			}
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.GREEN.toString() + "+30 Minutes")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.GREEN}+30 Minutes")) {
 			if (e.isLeftClick) {
 				Main.timerService?.setSec(Main.timerService?.getSec()!!.plus(1800))
 				Main.timerInv?.newInventory(player)
 			}
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.RED.toString() + "-30 Minutes")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.RED}-30 Minutes")) {
 			if (e.isLeftClick) {
 				if(Main.timerService?.getSec()!! < 1800){
 					Main.timerService?.setSec(0)
@@ -61,21 +61,21 @@ class TimerInvListener: Listener {
 			}
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.AQUA.toString() + "Reverse")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.AQUA}Reverse")) {
 			if (e.isLeftClick) {
 				Main.timerService?.setReversed(false)
 				Main.timerInv?.newInventory(player)
 			}
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.GOLD.toString() + "Normal")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.GOLD}Normal")) {
 			if (e.isLeftClick) {
 				Main.timerService?.setReversed(true)
 				Main.timerInv?.newInventory(player)
 			}
 		}
 
-		if (item.itemMeta!!.displayName() == Component.text(ChatColor.RED.toString() + "Back")) {
+		if (item.itemMeta!!.displayName() == Component.text("${ChatColor.RED}Back")) {
 			if (e.isLeftClick) {
 				Main.settingsInv?.newInventory(player)
 			}

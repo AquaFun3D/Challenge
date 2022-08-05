@@ -15,10 +15,10 @@ class DmgCommand: CommandExecutor {
 			if (sender.isOp) {
 				if (Utils.dmgListenerToggle) {
 					Utils.dmgListenerToggle = false
-					Utils.send(sender,ChatColor.GOLD.toString() + "Damage visibility" + ChatColor.GREEN.toString() + " OFF")
+					Utils.send(sender,"${ChatColor.GOLD}Damage visibility ${ChatColor.GREEN}OFF")
 				} else {
 					Utils.dmgListenerToggle = true
-					Utils.send(sender,ChatColor.GOLD.toString() + "Damage visibility" + ChatColor.GREEN.toString() + " ON")
+					Utils.send(sender,"${ChatColor.GOLD}Damage visibility ${ChatColor.GREEN}ON")
 				}
 			}
 		}

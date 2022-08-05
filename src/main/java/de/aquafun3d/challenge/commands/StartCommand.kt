@@ -26,7 +26,7 @@ class StartCommand:CommandExecutor {
 			world.setGameRule(ANNOUNCE_ADVANCEMENTS,false)
 		}
 		Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.gameMode = GameMode.SURVIVAL }
-		Utils.atAll(ChatColor.LIGHT_PURPLE.toString() + "Challenge started")
+		Utils.atAll("${ChatColor.LIGHT_PURPLE}Challenge started")
 		if(Main.settingsInv?.getHardcore() == Utils.Hardcore.UHC){
 			for (world in Bukkit.getWorlds()) {
 				world.setGameRule(NATURAL_REGENERATION, false)

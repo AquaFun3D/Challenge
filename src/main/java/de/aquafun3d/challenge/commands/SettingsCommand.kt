@@ -24,7 +24,7 @@ class SettingsCommand: CommandExecutor {
 						Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.getAttribute(Attribute.GENERIC_MAX_HEALTH)!!.baseValue = 20.0
 						}
 					}
-					Utils.send(sender,"" + ChatColor.GREEN + "Setting reset")
+					Utils.send(sender,"${ChatColor.GREEN}Setting reset")
 				}else{
 					Main.settingsInv?.newInventory(sender)
 				}

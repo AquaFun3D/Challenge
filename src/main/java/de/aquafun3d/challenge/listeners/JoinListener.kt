@@ -22,7 +22,7 @@ class JoinListener : Listener {
 	@EventHandler
 	fun onJoin(e: PlayerJoinEvent) {
 		val player: Player = e.player
-		e.joinMessage(Component.text(Utils.PREFIX + ChatColor.DARK_PURPLE +  ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has joined"))
+		e.joinMessage(Component.text(Utils.PREFIX + "${ChatColor.AQUA}${player.name} ${ChatColor.GOLD}has joined"))
 		val board: Scoreboard = Bukkit.getScoreboardManager().newScoreboard
 		val obj: Objective = board.registerNewObjective("health", "health", Component.text("health"),RenderType.HEARTS)
 		obj.getScore("health").score = 1
@@ -43,6 +43,6 @@ class JoinListener : Listener {
 	@EventHandler
 	fun onLeave(e: PlayerQuitEvent) {
 		val player: Player = e.player
-		e.quitMessage(Component.text(Utils.PREFIX + ChatColor.AQUA + player.name + ChatColor.LIGHT_PURPLE + " has left"))
+		e.quitMessage(Component.text(Utils.PREFIX + "${ChatColor.AQUA}${player.name} ${ChatColor.LIGHT_PURPLE}has left"))
 	}
 }

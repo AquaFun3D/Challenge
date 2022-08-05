@@ -20,14 +20,14 @@ class WaypointCommand: CommandExecutor{
 		if (sender is Player) {
 			val player: Player = sender
 			if (args.isEmpty()) {
-				Utils.send(player,ChatColor.RED.toString() + "/waypoint <name> or list/remove/clear")
+				Utils.send(player,"${ChatColor.RED}/waypoint <name> or list/remove/clear")
 			}
 			when(args[0]){
 				"list" -> {
 					val list: ArrayList<String>? = Main.challengeConfig?.getAll("waypoints.")
-					Utils.send(player,ChatColor.GREEN.toString()  + "Available Waypoints are:")
+					Utils.send(player,"${ChatColor.GREEN}Available Waypoints are:")
 					if(list == null || list.size == 0) {
-						Utils.send(player,ChatColor.RED.toString() + "NONE")
+						Utils.send(player,"${ChatColor.RED}NONE")
 					}else {
 						var out = ""
 						for (i in 0 until list.size) {
@@ -37,7 +37,7 @@ class WaypointCommand: CommandExecutor{
 								list[i]
 							}
 						}
-						Utils.send(player,ChatColor.LIGHT_PURPLE.toString() + out)
+						Utils.send(player,"${ChatColor.LIGHT_PURPLE}$out")
 					}
 				}
 				"remove" -> {
@@ -48,9 +48,9 @@ class WaypointCommand: CommandExecutor{
 							args[1]
 						}
 						Main.challengeConfig?.set("waypoints.$str",null)
-						Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GOLD + " deleted")
+						Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GOLD}deleted")
 					}else {
-						Utils.send(player,ChatColor.GOLD.toString() + "You don't have Op permissions")
+						Utils.send(player,"${ChatColor.GOLD}You don't have Op permissions")
 					}
 				}
 				"clear" -> {
@@ -59,16 +59,16 @@ class WaypointCommand: CommandExecutor{
 							clear = 0
 						}
 						if(clear == 0){
-							Utils.send(player,ChatColor.RED.toString() + "Are you Sure? " + ChatColor.GREEN + "Run Command again.")
+							Utils.send(player,"${ChatColor.RED}Are you Sure? ${ChatColor.GREEN}Run Command again.")
 							clear = 1
 							timeClear = LocalDateTime.now().minute
 						}else if(clear == 1) {
 							Main.challengeConfig?.set("waypoints", null)
-							Utils.send(player,ChatColor.DARK_RED.toString() + "All waypoints deleted!")
+							Utils.send(player,"${ChatColor.DARK_RED}All waypoints deleted!")
 							clear = 0
 						}
 					} else {
-						Utils.send(player,ChatColor.GOLD.toString() + "You are not Admin!")
+						Utils.send(player,"${ChatColor.GOLD}You are not Admin!")
 					}
 				}
 				else -> {
@@ -83,9 +83,9 @@ class WaypointCommand: CommandExecutor{
 						val y: Int = Main.challengeConfig?.getDouble("waypoints.$str.y")!!.toInt()
 						val z: Int = Main.challengeConfig?.getDouble("waypoints.$str.z")!!.toInt()
 						when (wp){
-							"world" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in overworld")
-							"world_nether" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in nether")
-							"world_the_end" -> 	Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in the end")
+							"world" -> Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GREEN}$x, $y, $z ${ChatColor.GOLD}in overworld")
+							"world_nether" -> Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GREEN}$x, $y, $z ${ChatColor.GOLD}in nether")
+							"world_the_end" -> 	Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GREEN}$x, $y, $z ${ChatColor.GOLD}in the end")
 						}
 					}else {
 						Main.challengeConfig?.set("waypoints.$str.world", player.world.name)
@@ -96,9 +96,9 @@ class WaypointCommand: CommandExecutor{
 						val y = player.location.y.toInt()
 						val z = player.location.z.toInt()
 						when (player.world.name) {
-							"world" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in overworld by " + ChatColor.AQUA + player.name)
-							"world_nether" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in nether by " + ChatColor.AQUA + player.name)
-							"world_the_end" -> Utils.atAll("" + ChatColor.GOLD + "Waypoint " + ChatColor.LIGHT_PURPLE + str + ChatColor.GREEN + " " + x + ", " + y + ", " + z + ChatColor.GOLD + " in the end by " + ChatColor.AQUA + player.name)
+							"world" -> Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GREEN}$x, $y, $z ${ChatColor.GOLD}in overworld by ${ChatColor.AQUA}${player.name}")
+							"world_nether" -> Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GREEN}$x, $y, $z ${ChatColor.GOLD}in nether by ${ChatColor.AQUA}${player.name}")
+							"world_the_end" -> Utils.atAll("${ChatColor.GOLD}Waypoint ${ChatColor.LIGHT_PURPLE}$str ${ChatColor.GREEN}$x, $y, $z ${ChatColor.GOLD}in the end by ${ChatColor.AQUA}${player.name}")
 						}
 					}
 				}

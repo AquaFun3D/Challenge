@@ -20,9 +20,9 @@ class ChallengeListeners: Listener {
 	fun onPlayerDeath(e: PlayerDeathEvent) {
 		val player = e.entity
 		if (!Main.timerService?.getInstance()?.isPaused()!!) {
-			Utils.atAll(ChatColor.YELLOW.toString() + "Player " + ChatColor.GOLD.toString() + player.name + ChatColor.YELLOW.toString() + " died")
-			Utils.atAll(ChatColor.RED.toString() + "Challenge has stopped")
-			Utils.atAll(ChatColor.GREEN.toString() + "Time wasted: " + ChatColor.GOLD.toString() + Main.timerService?.getInstance()?.getTimerString())
+			Utils.atAll("${ChatColor.YELLOW}Player ${ChatColor.GOLD}player.name ${ChatColor.YELLOW}died")
+			Utils.atAll("${ChatColor.RED}Challenge has stopped")
+			Utils.atAll("${ChatColor.GREEN}Time wasted: ${ChatColor.GOLD}" + Main.timerService?.getInstance()?.getTimerString())
 			Bukkit.getOnlinePlayers().forEach { p: Player -> p.gameMode = GameMode.SPECTATOR }
 			Main.timerService?.getInstance()?.toggle()
 		}
@@ -32,8 +32,8 @@ class ChallengeListeners: Listener {
 	@EventHandler
 	fun onPlayerWin(e: EntityDeathEvent) {
 		if (e.entity is EnderDragon) {
-			Utils.atAll(ChatColor.GREEN.toString() + "Time: " + ChatColor.GOLD.toString() + Main.timerService?.getInstance()?.getTimerString())
-			Utils.atAll(ChatColor.GOLD.toString() + "Challenge won, you killed the Enderdragon!")
+			Utils.atAll("${ChatColor.GREEN}Time: ${ChatColor.GOLD}" + Main.timerService?.getInstance()?.getTimerString())
+			Utils.atAll("${ChatColor.GOLD}Challenge won, you killed the Enderdragon!")
 			Bukkit.getOnlinePlayers().forEach { p: Player? -> p!!.gameMode = GameMode.SPECTATOR }
 			Main.timerService?.getInstance()?.toggle()
 		}

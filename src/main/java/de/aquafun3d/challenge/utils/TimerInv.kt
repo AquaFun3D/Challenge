@@ -23,27 +23,27 @@ class TimerInv {
 
 		val fivePlus = ItemStack(Material.GREEN_TERRACOTTA)
 		val fivePlusMeta = fivePlus.itemMeta
-		fivePlusMeta!!.displayName(Component.text(ChatColor.GREEN.toString() + "+5 Minutes"))
+		fivePlusMeta!!.displayName(Component.text("${ChatColor.GREEN}+5 Minutes"))
 		fivePlus.itemMeta = fivePlusMeta
 
 		val fiveMinus = ItemStack(Material.RED_TERRACOTTA)
 		val fiveMinusMeta = fiveMinus.itemMeta
-		fiveMinusMeta!!.displayName(Component.text(ChatColor.RED.toString() + "-5 Minutes"))
+		fiveMinusMeta!!.displayName(Component.text("${ChatColor.RED}-5 Minutes"))
 		fiveMinus.itemMeta = fiveMinusMeta
 
 		val thrityPlus = ItemStack(Material.GREEN_WOOL)
 		val thrityPlusMeta = thrityPlus.itemMeta
-		thrityPlusMeta!!.displayName(Component.text(ChatColor.GREEN.toString() + "+30 Minutes"))
+		thrityPlusMeta!!.displayName(Component.text("${ChatColor.GREEN}+30 Minutes"))
 		thrityPlus.itemMeta = thrityPlusMeta
 
 		val thrityMinus = ItemStack(Material.RED_WOOL)
 		val thrityMinusMeta = thrityMinus.itemMeta
-		thrityMinusMeta!!.displayName(Component.text(ChatColor.RED.toString() + "-30 Minutes"))
+		thrityMinusMeta!!.displayName(Component.text("${ChatColor.RED}-30 Minutes"))
 		thrityMinus.itemMeta = thrityMinusMeta
 
 		val time = ItemStack(Material.CLOCK)
 		val timeMeta = time.itemMeta
-		timeMeta!!.displayName(Component.text(ChatColor.YELLOW.toString() + "Time"))
+		timeMeta!!.displayName(Component.text("${ChatColor.YELLOW}Time"))
 		val lore = ArrayList<Component>()
 		lore.add(Component.text(Main.timerService?.getSec()!!.div(60).toString() + ChatColor.GOLD + " minutes"))
 		timeMeta.lore(lore)
@@ -51,17 +51,17 @@ class TimerInv {
 
 		val reverse = ItemStack(Material.SOUL_LANTERN)
 		val reverseMeta = reverse.itemMeta
-		reverseMeta!!.displayName(Component.text(ChatColor.AQUA.toString() + "Reverse"))
+		reverseMeta!!.displayName(Component.text("${ChatColor.AQUA}Reverse"))
 		reverse.itemMeta = reverseMeta
 
 		val normal = ItemStack(Material.LANTERN)
 		val normalMeta = normal.itemMeta
-		normalMeta!!.displayName(Component.text(ChatColor.GOLD.toString() + "Normal"))
+		normalMeta!!.displayName(Component.text("${ChatColor.GOLD}Normal"))
 		normal.itemMeta = normalMeta
 
 		val back = ItemStack(Material.BARRIER)
 		val backMeta = back.itemMeta
-		backMeta!!.displayName(Component.text(ChatColor.RED.toString() + "Back"))
+		backMeta!!.displayName(Component.text("${ChatColor.RED}Back"))
 		back.itemMeta = backMeta
 
 		for (j in 0..26) {
